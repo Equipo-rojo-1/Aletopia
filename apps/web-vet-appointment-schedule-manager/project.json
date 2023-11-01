@@ -1,0 +1,98 @@
+{
+  "name": "web-vet-appointment-schedule-manager",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web-vet-appointment-schedule-manager/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/web-vet-appointment-schedule-manager",
+        "index": "apps/web-vet-appointment-schedule-manager/src/index.html",
+        "baseHref": "/",
+        "main": "apps/web-vet-appointment-schedule-manager/src/main.tsx",
+        "tsConfig": "apps/web-vet-appointment-schedule-manager/tsconfig.app.json",
+        "assets": [
+          "apps/web-vet-appointment-schedule-manager/src/favicon.ico",
+          "apps/web-vet-appointment-schedule-manager/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/web-vet-appointment-schedule-manager/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/web-vet-appointment-schedule-manager/src/environments/environment.ts",
+              "with": "apps/web-vet-appointment-schedule-manager/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "web-vet-appointment-schedule-manager:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "web-vet-appointment-schedule-manager:build:development"
+        },
+        "production": {
+          "buildTarget": "web-vet-appointment-schedule-manager:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/web-vet-appointment-schedule-manager/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "web-vet-appointment-schedule-manager:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/web-vet-appointment-schedule-manager/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
