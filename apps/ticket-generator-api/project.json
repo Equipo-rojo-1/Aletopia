@@ -1,0 +1,64 @@
+{
+  "name": "ticket-generator-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ticket-generator-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/ticket-generator-api",
+        "main": "apps/ticket-generator-api/src/main.ts",
+        "tsConfig": "apps/ticket-generator-api/tsconfig.app.json",
+        "assets": ["apps/ticket-generator-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/ticket-generator-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ticket-generator-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ticket-generator-api:build:development"
+        },
+        "production": {
+          "buildTarget": "ticket-generator-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ticket-generator-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ticket-generator-api/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

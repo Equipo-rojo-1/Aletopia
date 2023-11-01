@@ -1,0 +1,64 @@
+{
+  "name": "appointment-schedule-manager",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/appointment-schedule-manager/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/appointment-schedule-manager",
+        "main": "apps/appointment-schedule-manager/src/main.ts",
+        "tsConfig": "apps/appointment-schedule-manager/tsconfig.app.json",
+        "assets": ["apps/appointment-schedule-manager/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/appointment-schedule-manager/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "appointment-schedule-manager:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "appointment-schedule-manager:build:development"
+        },
+        "production": {
+          "buildTarget": "appointment-schedule-manager:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/appointment-schedule-manager/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/appointment-schedule-manager/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
