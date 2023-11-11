@@ -1,0 +1,23 @@
+import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
+
+export class TicketDto {
+  @IsNotEmpty()
+  @IsString()
+  firstName: string;
+
+  @IsNotEmpty()
+  @IsString()
+  lastName: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  generalTickets: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  seniorTickets: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  childTickets: number;
+}

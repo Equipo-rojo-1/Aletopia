@@ -39,5 +39,6 @@ testem.log
 Thumbs.db
 .pnpm-debug.log
 pnpm-lock.yaml
+.env
 
 .nx/cache
