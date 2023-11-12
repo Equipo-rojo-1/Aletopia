@@ -17,14 +17,18 @@ export class AppService {
     const payload = {
       ...dto,
     };
-    const secret: string = this.config.get('JWT_SECRET');
+    try {
+      const secret: string = this.config.get('JWT_SECRET');
 
-    const token = await this.jwt.signAsync(payload, {
-      expiresIn: '1h',
-      secret: secret,
-    });
+      const token = await this.jwt.signAsync(payload, {
+        expiresIn: '1h',
+        secret: secret,
+      });
 
-    return token;
+      return token;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   async createQrCode(jwt: string): Promise<string> {
@@ -32,7 +36,7 @@ export class AppService {
       const QrCode = await QRCode.toString(jwt, { type: 'svg' });
       return QrCode;
     } catch (error) {
-      throw new error();
+      throw new Error(error);
     }
   }
 }
