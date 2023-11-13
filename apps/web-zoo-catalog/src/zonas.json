@@ -1,0 +1,549 @@
+{
+  "acuario": {
+    "zona": "acuario",
+    "habitats": [
+      {
+        "id": 1,
+        "habitat": "peces koi",
+        "cantidad": 4,
+        "animales": [
+          {
+            "codigoAnimal": "001PK",
+            "fechaLlegada": "01/05/2000",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002PK",
+            "fechaLlegada": "01/05/2000",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "003PK",
+            "fechaLlegada": "01/05/2000",
+            "estado": "enfermo",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "004PK",
+            "fechaLlegada": "01/05/2000",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "habitat": "rayas",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001RY",
+            "fechaLlegada": "01/07/2000",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002RY",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "habitat": "delfines",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001DF",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002DF",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "003DF",
+            "fechaLlegada": "01/06/2004",
+            "estado": "enfermo",
+            "sexo": "?"
+          }
+        ]
+      }
+    ]
+  },
+  "aviario": {
+    "zona": "aviario",
+    "habitats": [
+      {
+        "id": 1,
+        "habitat": "canario",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001CO",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002CO",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "003CO",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "habitat": "guacamayas",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001GM",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002GM",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "habitat": "turpiales",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001TP",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002TP",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "003TP",
+            "fechaLlegada": "01/06/2004",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      }
+    ]
+  },
+  "carnivoros": {
+    "zona": "carnivoros",
+    "habitats": [
+      {
+        "id": 1,
+        "habitat": "leones",
+        "cantidad": 4,
+        "animales": [
+          {
+            "codigoAnimal": "001LN",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002LN",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "003LN",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "004LN",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "habitat": "tigres",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001TR",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002TR",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "habitat": "leopardo",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001LP",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002LP",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "003LP",
+            "fechaLlegada": "01/06/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "habitat": "lobos",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001LB",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002LB",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "habitat": "hienas",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001HN",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      }
+    ]
+  },
+  "herbivoros": {
+    "zona": "herbivoros",
+    "habitats": [
+      {
+        "id": 1,
+        "habitat": "monos",
+        "cantidad": 6,
+        "animales": [
+          {
+            "codigoAnimal": "001MN",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002MN",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "003MN",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "004MN",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "005MN",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "006MN",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "habitat": "zebra",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001ZB",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002ZB",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "habitat": "jirafas",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001JF",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "habitat": "panda",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001PD",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002PD",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "habitat": "elefantes",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001EF",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002EF",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "habitat": "rinoceronte",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001RT",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "habitat": "venados",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001VN",
+            "fechaLlegada": "01/05/2015",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002VN",
+            "fechaLlegada": "01/05/2015",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      }
+    ]
+  },
+  "insectario": {
+    "zona": "insectario",
+    "habitats": [
+      {
+        "id": 1,
+        "habitat": "mariposas",
+        "cantidad": 6,
+        "animales": [
+          {
+            "codigoAnimal": "001MP",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002MP",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "003MP",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "004MP",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "005MP",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "006MP",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "habitat": "araña mona",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001AM",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002AM",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "habitat": "serpiente",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001SP",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "habitat": "insecto palo",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001IP",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "?"
+          },
+          {
+            "codigoAnimal": "002IP",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "habitat": "anaconda",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001AN",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002AN",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "habitat": "escarabajo",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001RT",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      }
+    ]
+  }
+}

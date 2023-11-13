@@ -1,55 +1,114 @@
-import styled from 'styled-components';
+import React, { useState } from 'react';
+// components
+import Table from './../components/pure/Table';
+import ZoneButton from './../components/pure/ZoneButton';
+import AnimalCard from './../components/pure/AnimalCard';
+// json
+import { Habitat, ZoneName } from './../utils/types';
+// css
+import './App.css';
+// assets
+import zones from './../zonas.json';
+import parrotColor from './../assets/img/parrot-color.svg';
+import parrotNotColor from './../assets/img/parrot-not-color.svg';
+import dolphinColor from './../assets/img/dolphin-color.svg';
+import dolphinNotColor from './../assets/img/dolphin-not-color.svg';
+import tigerColor from './../assets/img/tiger-color.png';
+import tigerNotColor from './../assets/img/tiger-not-color.svg';
+import zebraColor from './../assets/img/zebra-color.svg';
+import zebraNotColor from './../assets/img/zebra-not-color.svg';
+import ladybugColor from './../assets/img/ladybug-color.svg';
+import ladybugNotColor from './../assets/img/ladybug-not-color.svg';
+import nameZoo from './../assets/img/name-logo.png';
+import arrowBack from './../assets/img/arrow-back.svg';
 
-import NxWelcome from './nx-welcome';
+function App() {
+  const [tableData, setTableData] = useState<Habitat[] | null>(null);
+  const [zoneName, setZoneName] = useState<ZoneName | ''>('');
+  const [habitat, setHabitat] = useState<Habitat | null>(null);
+  const zoneManagementStyle = habitat
+    ? { display: 'none' }
+    : { display: 'flex' };
+  const zoneAnimalStyle = habitat ? { display: 'flex' } : { display: 'none' };
 
-import { Route, Routes, Link } from 'react-router-dom';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
-
-export function App() {
+  function fillTable(zoneName: ZoneName) {
+    const habitats = zones[zoneName].habitats as Habitat[];
+    setTableData(habitats);
+    setZoneName(zoneName);
+  }
+  function displayHabitat(habitat: Habitat) {
+    console.log('funcionando');
+    setHabitat(habitat);
+  }
+  function back() {
+    setHabitat(null);
+  }
   return (
-    <StyledApp>
-      <NxWelcome title="web-zoo-catalog" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
-    </StyledApp>
+    <>
+      <main className="zone-management" style={zoneManagementStyle}>
+        <header className="zone-management--header">
+          <img src={nameZoo} alt="nombre del zoologico" />
+          <h1>Gestion de zonas</h1>
+        </header>
+        <section className="zone-management--buttonsWrapper">
+          <ZoneButton
+            fillTable={fillTable}
+            typeZone="aviario"
+            hexColor="#a3ffa3"
+            notColorImagePath={parrotNotColor}
+            colorImagePath={parrotColor}
+          ></ZoneButton>
+          <ZoneButton
+            fillTable={fillTable}
+            typeZone="acuario"
+            hexColor="#91a4ff"
+            notColorImagePath={dolphinNotColor}
+            colorImagePath={dolphinColor}
+          ></ZoneButton>
+          <ZoneButton
+            fillTable={fillTable}
+            typeZone="carnivoros"
+            hexColor="#F4E7A0"
+            notColorImagePath={tigerNotColor}
+            colorImagePath={tigerColor}
+          ></ZoneButton>
+          <ZoneButton
+            fillTable={fillTable}
+            typeZone="herbivoros"
+            hexColor="#ffdcd7"
+            notColorImagePath={zebraNotColor}
+            colorImagePath={zebraColor}
+          ></ZoneButton>
+          <ZoneButton
+            fillTable={fillTable}
+            typeZone="insectario"
+            hexColor="#F7A39D"
+            notColorImagePath={ladybugNotColor}
+            colorImagePath={ladybugColor}
+          ></ZoneButton>
+        </section>
+        <div className="zone-management--tableWrapper">
+          <Table tableData={tableData} displayHabitat={displayHabitat}></Table>
+        </div>
+      </main>
+      <section className="habitat" style={zoneAnimalStyle}>
+        <button className="back-button" onClick={back}>
+          <img src={arrowBack} alt="boton hacia atras" />
+        </button>
+        <h1>{`${zoneName} - ${habitat?.habitat}`}</h1>
+        <section className="animals-wrapper">
+          {habitat &&
+            habitat.animales.map((element) => {
+              return (
+                <AnimalCard
+                  key={element.codigoAnimal}
+                  animal={element}
+                ></AnimalCard>
+              );
+            })}
+        </section>
+      </section>
+    </>
   );
 }
 
