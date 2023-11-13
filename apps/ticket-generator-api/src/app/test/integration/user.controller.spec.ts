@@ -3,6 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from '../../app.controller';
 import { AppService } from '../../app.service';
 import { AppModule } from '../../app.module';
+import { TicketDto } from '../../dto';
 
 describe('AppController Integration', () => {
   let moduleRef: TestingModule;
@@ -18,10 +19,17 @@ describe('AppController Integration', () => {
     appService = moduleRef.get(AppService);
   });
 
-  /* describe('getData', () => {
-    it('should return "Hello API"', () => {
-      const appController = moduleRef.get<AppController>(AppController);
-      expect(appController.getData()).toEqual({ message: 'Hello API' });
+  describe('Generate ticket', () => {
+    it('should return a qrCode', async () => {
+      const payload: TicketDto = {
+        firstName: 'Luis',
+        lastName: 'Mata',
+        generalTickets: 2,
+        seniorTickets: 1,
+        childTickets: 1,
+      };
+      const qrCode = await appController.generateQrTicket(payload);
+      expect(qrCode).toContain('<svg');
     });
-  }); */
+  });
 });
