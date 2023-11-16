@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 // components
-import Table from './components/pure/Table';
+import Table from './components/pure/ZoneTable';
 import ZoneButton from './components/pure/ZoneButton';
-import AnimalCard from './components/pure/AnimalCard';
+import HabitatTable from './components/pure/HabitatTable';
+// import AnimalCard from './components/pure/AnimalCard';
 // json`
 import { Habitat, ZoneName } from './utils/types';
 // css
@@ -31,13 +32,12 @@ function App() {
     : { display: 'flex' };
   const zoneAnimalStyle = habitat ? { display: 'flex' } : { display: 'none' };
 
-  function fillTable(zoneName: ZoneName) {
+  function fillZoneTable(zoneName: ZoneName) {
     const habitats = zones[zoneName].habitats as Habitat[];
     setTableData(habitats);
     setZoneName(zoneName);
   }
   function displayHabitat(habitat: Habitat) {
-    console.log('funcionando');
     setHabitat(habitat);
   }
   function back() {
@@ -52,35 +52,35 @@ function App() {
         </header>
         <section className="zone-management--buttonsWrapper">
           <ZoneButton
-            fillTable={fillTable}
+            fillTable={fillZoneTable}
             typeZone="aviario"
             hexColor="#a3ffa3"
             notColorImagePath={parrotNotColor}
             colorImagePath={parrotColor}
           ></ZoneButton>
           <ZoneButton
-            fillTable={fillTable}
+            fillTable={fillZoneTable}
             typeZone="acuario"
             hexColor="#91a4ff"
             notColorImagePath={dolphinNotColor}
             colorImagePath={dolphinColor}
           ></ZoneButton>
           <ZoneButton
-            fillTable={fillTable}
+            fillTable={fillZoneTable}
             typeZone="carnivoros"
             hexColor="#F4E7A0"
             notColorImagePath={tigerNotColor}
             colorImagePath={tigerColor}
           ></ZoneButton>
           <ZoneButton
-            fillTable={fillTable}
+            fillTable={fillZoneTable}
             typeZone="herbivoros"
             hexColor="#ffdcd7"
             notColorImagePath={zebraNotColor}
             colorImagePath={zebraColor}
           ></ZoneButton>
           <ZoneButton
-            fillTable={fillTable}
+            fillTable={fillZoneTable}
             typeZone="insectario"
             hexColor="#F7A39D"
             notColorImagePath={ladybugNotColor}
@@ -95,18 +95,8 @@ function App() {
         <button className="back-button" onClick={back}>
           <img src={arrowBack} alt="boton hacia atras" />
         </button>
-        <h1>{`${zoneName} - ${habitat?.habitat}`}</h1>
-        <section className="animals-wrapper">
-          {habitat &&
-            habitat.animales.map((element) => {
-              return (
-                <AnimalCard
-                  key={element.codigoAnimal}
-                  animal={element}
-                ></AnimalCard>
-              );
-            })}
-        </section>
+        <h1>{`${zoneName} - ${habitat?.nombreHabitat}`}</h1>
+        {habitat && <HabitatTable animals={habitat.animales}></HabitatTable>}
       </section>
     </>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import './../../assets/css/table.css';
 import windowsOpen from './../../assets/img/window-open.svg';
-import { Habitat } from './../../utils/types';
+import { Habitat } from '../../utils/types';
 export default function Table({
   tableData,
   displayHabitat,
@@ -30,8 +30,8 @@ export default function Table({
           <tbody>
             {tableData.map((habitat) => {
               return (
-                <tr key={habitat.id} className="table--row">
-                  <td>{habitat.habitat}</td>
+                <tr key={habitat.idHabitat} className="table--row">
+                  <td>{habitat.nombreHabitat}</td>
                   <td>{habitat.cantidad}</td>
                   <td>
                     <img

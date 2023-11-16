@@ -22,10 +22,10 @@ export default function AnimalCard({ animal }: { animal: Animal }) {
       </div>
       <div className="animal-card--gender">
         <img
-          src={animal.sexo === 'male' ? maleGender : femaleGender}
+          src={animal.sexo === 'macho' ? maleGender : femaleGender}
           alt="gender"
         />
-        <span>{animal.sexo === 'male' ? 'macho' : 'hembra'}</span>
+        <span>{animal.sexo === 'macho' ? 'macho' : 'hembra'}</span>
       </div>
       <div className="animal-card--date">
         <img src={calendar} alt="calendar" />
