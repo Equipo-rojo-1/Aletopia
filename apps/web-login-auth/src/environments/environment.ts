@@ -3,4 +3,11 @@
 
 export const environment = {
   production: false,
+  imagePaths: {
+    personalIco: './assets/personal.svg',
+    background: './assets/background.jp',
+    groupIco: './assets/group.svg',
+    keyIco: './assets/key.svg',
+    logo: './assets/logo.png',
+  }
 };
