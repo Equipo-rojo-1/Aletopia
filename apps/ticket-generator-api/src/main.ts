@@ -17,6 +17,8 @@ async function bootstrap() {
       whitelist: true,
     })
   );
+  //disable cors for testing from different origins
+  //app.enableCors();
   const port = process.env.PORT || 3000;
   await app.listen(port);
   Logger.log(
