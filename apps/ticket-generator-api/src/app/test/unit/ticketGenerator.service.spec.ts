@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 
-import { AppService } from '../../app.service';
+import { AppService } from '../../ticketGenerator.service';
 import { ticketStub } from '../stubs';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';

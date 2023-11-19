@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './ticketGenerator.controller';
+import { AppService } from './ticketGenerator.service';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({
