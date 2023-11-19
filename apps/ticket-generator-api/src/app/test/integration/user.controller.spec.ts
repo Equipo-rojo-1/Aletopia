@@ -4,6 +4,7 @@ import { AppController } from '../../app.controller';
 import { AppService } from '../../app.service';
 import { AppModule } from '../../app.module';
 import { TicketDto } from '../../dto';
+import { ticketStub } from '../stubs';
 
 describe('AppController Integration', () => {
   let moduleRef: TestingModule;
@@ -21,15 +22,8 @@ describe('AppController Integration', () => {
 
   describe('Generate ticket', () => {
     it('should return a qrCode', async () => {
-      const payload: TicketDto = {
-        firstName: 'Luis',
-        lastName: 'Mata',
-        generalTickets: 2,
-        seniorTickets: 1,
-        childTickets: 1,
-      };
-      const qrCode = await appController.generateQrTicket(payload);
-      expect(qrCode).toContain('<svg');
+      const res = await appController.generateQrTicket(ticketStub);
+      expect(res.qrCode).toContain('<svg');
     });
   });
 });

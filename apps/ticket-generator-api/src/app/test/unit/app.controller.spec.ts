@@ -22,7 +22,9 @@ describe('AppController', () => {
 
   describe('generate Ticket', () => {
     it('should return a qr code on svg format', async () => {
-      expect(await appController.generateQrTicket(ticketStub)).toBe(qrCodeStub);
+      expect((await appController.generateQrTicket(ticketStub)).qrCode).toBe(
+        qrCodeStub
+      );
     });
   });
 });

@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 
 import { AppService } from '../../app.service';
-import { ticketStub } from '../stubs/index';
+import { ticketStub } from '../stubs';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 
