@@ -20,4 +20,8 @@ export class TicketDto {
   @IsNotEmpty()
   @IsNumber()
   childTickets: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  idCard: number;
 }

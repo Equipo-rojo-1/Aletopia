@@ -6,4 +6,5 @@ export const ticketStub: TicketDto = {
   generalTickets: 2,
   seniorTickets: 1,
   childTickets: 1,
+  idCard: 29655551,
 };
