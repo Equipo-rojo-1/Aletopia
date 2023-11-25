@@ -107,7 +107,6 @@ export const ImgInput = styled.img<AjustHeight>`
   width: 40px;
 `;
 
-
 export const InputStyle = styled.input`
   border: 0px;
   margin-bottom: 10px;

@@ -35,9 +35,20 @@ const Login: React.FC = () => {
 
       if (!resp?.data?.token) throw new Error('Error al iniciar sesión');
 
-      toast.success('Inicio de sesión correcto!');
+      toast.success('Inicio de sesión correcto!', {
+        style: {
+          background: 'rgba(255, 255, 255, 0.25)',
+          color: 'rgb(5, 90, 20)',
+          border: 0
+        },
+      });
     } catch (error) {
-      toast.error('Error al iniciar sesión!');
+      toast.error('Error al iniciar sesión!', {
+        style: {
+          background: 'rgba(255, 255, 255, 0.25)',
+          border: 0
+        },
+      });
     }
   };
 
@@ -52,7 +63,7 @@ const Login: React.FC = () => {
 
   return (
     <LoginStyle>
-      <Toaster expand={true} richColors />
+      <Toaster expand={true} richColors duration={1000} />
       <MyForm onSubmit={handleSubmit}>
         <img src={environment.imagePaths.logo} alt="logo" />
         <h1>Iniciar Sesión</h1>
