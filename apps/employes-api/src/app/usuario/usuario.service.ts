@@ -3,6 +3,7 @@ import { personal } from '../empleados/empleados.entity';
 import { CreateUserDto } from './dto/create.user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { LoginUserDto } from './dto/login.dto';
+import { UpdateUser } from './dto/update.user';
 import { JwtService } from '@nestjs/jwt';
 import { User } from './usuario.entity';
 import { hash, compare } from 'bcrypt';
@@ -16,7 +17,7 @@ export class UsuarioService {
         private jwtAuthService: JwtService) { }
 
     async CreateUsuario(usuario: CreateUserDto) {
-        const personaExists = this.personalRepository.findOneBy({ cedula: usuario.id_cedula })
+        const personaExists = this.personalRepository.findOneBy({ cedula: usuario.idCedula })
         if (!personaExists) {
             throw new BadRequestException('The person not exists')
         }
@@ -24,7 +25,7 @@ export class UsuarioService {
             const newUser = this.UserRepository.create()
             newUser.username = usuario.username
             newUser.password = await hash(usuario.password, 10)
-            newUser.id_cedula = usuario.id_cedula
+            newUser.id_cedula = usuario.idCedula
             return this.UserRepository.save(newUser);
         }
     }
@@ -52,11 +53,50 @@ export class UsuarioService {
         return this.UserRepository.find()
     }
 
-    GetUserBy(id_cedula: string) {
-        return this.UserRepository.findOne({
+    async GetUserBy(id_cedula: string) {
+        const personaExists = await this.UserRepository.findOne({
             where: {
                 id_cedula
             }
         })
+        if (!personaExists) {
+            throw new HttpException('Not Found', 404)
+        } else {
+            return personaExists
+        }
+    }
+
+    async DeleteUser(id_cedula: string) {
+        const userExists = await this.UserRepository.findOne({
+            where: {
+                id_cedula
+            }
+        })
+
+        if (!userExists) {
+            throw new HttpException('Not Found', 404)
+
+        }
+        else {
+            return this.UserRepository.delete({ id_cedula })
+        }
+    }
+
+    async UpdateUser(id_cedula: string, usuario: UpdateUser) {
+        const personaExists = await this.UserRepository.findOne({
+            where: {
+                id_cedula
+            }
+        })
+
+        if (!personaExists) {
+            throw new HttpException('Incorrect', 403)
+        }
+        else {
+            const update_user = this.UserRepository.create()
+            update_user.username = usuario.username
+            update_user.password = await hash(usuario.password, 10)
+            return this.UserRepository.update({ id_cedula }, update_user)
+        }
     }
 }

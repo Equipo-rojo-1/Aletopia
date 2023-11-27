@@ -5,5 +5,6 @@ export class CreatePersonaDto {
     apellido: string
     telefono: string
     direccion: string
+    edad: number
     fechaNacimiento: Date
 }
