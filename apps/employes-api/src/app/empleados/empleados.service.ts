@@ -1,5 +1,5 @@
-import { UpdatePersonaDto } from './dto/update_persona.dto';
-import { CreatePersonaDto } from './dto/create_persona.dto';
+import { UpdatePersonaDto } from './dto/update.persona.dto';
+import { CreatePersonaDto } from './dto/create.persona.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { personal } from './empleados.entity';
 import { Injectable } from '@nestjs/common';

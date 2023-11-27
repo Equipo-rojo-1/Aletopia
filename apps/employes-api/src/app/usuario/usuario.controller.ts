@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateUserDto } from './dto/create_user.dto';
+import { CreateUserDto } from './dto/create.user.dto';
 import { UsuarioService } from './usuario.service';
-import { User } from './usuario.entity';
 import { LoginUserDto } from './dto/login.dto';
+import { User } from './usuario.entity';
 
 @Controller('usuario')
 export class UsuarioController {
@@ -15,8 +15,8 @@ export class UsuarioController {
     }
 
     @Post('login')
-    login_user(@Body() usuario: LoginUserDto){
-        return this.UserService.login(usuario)
+    LoginUser(@Body() usuario: LoginUserDto){
+        return this.UserService.Login(usuario)
     }
 
     @Get()

@@ -1,51 +1,49 @@
 import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
 import { personal } from '../empleados/empleados.entity';
-import { CreateUserDto } from './dto/create_user.dto';
+import { CreateUserDto } from './dto/create.user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { transporter } from './sendEmail';
-import { User } from './usuario.entity';
-import { Repository } from 'typeorm';
 import { LoginUserDto } from './dto/login.dto';
-import { hash , compare} from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { User } from './usuario.entity';
+import { hash, compare } from 'bcrypt';
+import { Repository } from 'typeorm';
+
 @Injectable()
 export class UsuarioService {
 
     constructor(@InjectRepository(User) private UserRepository: Repository<User>,
         @InjectRepository(personal) private personalRepository: Repository<personal>,
-        private jwtAuthService:JwtService ){ }
+        private jwtAuthService: JwtService) { }
 
-     async CreateUsuario(usuario: CreateUserDto) {
-        const existe_persona = this.personalRepository.findOneBy({ cedula: usuario.id_cedula })
-        if (!existe_persona) {
-            throw new BadRequestException('Error la persona no existe')
+    async CreateUsuario(usuario: CreateUserDto) {
+        const personaExists = this.personalRepository.findOneBy({ cedula: usuario.id_cedula })
+        if (!personaExists) {
+            throw new BadRequestException('The person not exists')
         }
         else {
-           if(existe_persona){
             const newUser = this.UserRepository.create()
             newUser.username = usuario.username
-            newUser.password = await hash(usuario.password,10)
-            newUser.id_cedula = usuario.id_cedula   
+            newUser.password = await hash(usuario.password, 10)
+            newUser.id_cedula = usuario.id_cedula
             return this.UserRepository.save(newUser);
-           }
         }
     }
-    
-    async login(user: LoginUserDto){
-        const {username, password} = user
-        const existe_usuario = await this.UserRepository.findOneBy({username})
-        if(!existe_usuario){
-             throw  new HttpException('El username no esta registrado', 404)
+
+    async Login(user: LoginUserDto) {
+        const { username, password } = user
+        const userExists = await this.UserRepository.findOneBy({ username })
+        if (!userExists) {
+            throw new HttpException('Incorrect', 403)
         }
-        const veri_password = await compare(password,existe_usuario.password)
-        if(!veri_password){
-            throw new HttpException('password incorrect', 403)
+        const verifyPassword = await compare(password, userExists.password)
+        if (!verifyPassword) {
+            throw new HttpException('Incorrect', 403)
         }
-        const payload = {id:existe_usuario.id,username: existe_usuario.username}
-        const token = await this.jwtAuthService.sign(payload)
+        const payload = { id: userExists.id, username: userExists.username }
+        const token = this.jwtAuthService.sign(payload)
         const data = {
-            Usuario:existe_usuario,
-            token 
+            Usuario: userExists,
+            token
         }
         return data
     }
