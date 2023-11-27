@@ -22,20 +22,4 @@ describe('AppService', () => {
       expect(await service.generateTicket(ticketStub)).toContain('<svg');
     });
   });
-
-  describe('Generate jwt', () => {
-    it('should return a jwt', async () => {
-      expect((await service.generateJwt(ticketStub)).split('.')).toHaveLength(
-        3
-      );
-    });
-  });
-
-  describe('Generate qr code', () => {
-    it('Should return a qr code in svg format', async () => {
-      const jwt =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
-      expect(await service.createQrCode(jwt)).toContain('<svg');
-    });
-  });
 });

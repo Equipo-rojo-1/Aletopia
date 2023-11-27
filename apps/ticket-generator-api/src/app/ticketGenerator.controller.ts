@@ -9,6 +9,7 @@ export class AppController {
 
   @Post('generateTicket')
   async generateQrTicket(@Body() dto: TicketDto) {
-    return { qrCode: await this.appService.generateTicket(dto) };
+    const qrCode = await this.appService.generateTicket(dto);
+    return { qrCode };
   }
 }

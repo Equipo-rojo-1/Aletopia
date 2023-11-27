@@ -12,8 +12,8 @@ export class AppService {
     const jwt = await this.generateJwt(dto);
     return this.createQrCode(jwt);
   }
-  //Helper Functions:
-  async generateJwt(dto: TicketDto): Promise<string> {
+
+  private async generateJwt(dto: TicketDto): Promise<string> {
     const payload = {
       ...dto,
     };
@@ -31,7 +31,7 @@ export class AppService {
     }
   }
 
-  async createQrCode(jwt: string): Promise<string> {
+  private async createQrCode(jwt: string): Promise<string> {
     try {
       const QrCode = await QRCode.toString(jwt, { type: 'svg' });
       return QrCode;
