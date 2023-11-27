@@ -1,6 +1,10 @@
 import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
 
 export class TicketDto {
+  @IsString()
+  @IsNotEmpty()
+  id: string;
+
   @IsNotEmpty()
   @IsString()
   firstName: string;
