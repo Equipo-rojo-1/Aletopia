@@ -1,20 +1,20 @@
 import { Test } from '@nestjs/testing';
 
-import { AppService } from '../../ticketGenerator.service';
+import { ticketGeneratorService } from '../../ticketGenerator.service';
 import { ticketStub } from '../stubs';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 
 describe('AppService', () => {
-  let service: AppService;
+  let service: ticketGeneratorService;
 
   beforeAll(async () => {
     const app = await Test.createTestingModule({
-      providers: [AppService],
+      providers: [ticketGeneratorService],
       imports: [ConfigModule, JwtModule],
     }).compile();
 
-    service = app.get<AppService>(AppService);
+    service = app.get<ticketGeneratorService>(ticketGeneratorService);
   });
 
   describe('Generate ticket', () => {

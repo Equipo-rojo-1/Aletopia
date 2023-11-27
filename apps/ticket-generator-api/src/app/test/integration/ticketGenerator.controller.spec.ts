@@ -1,23 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { AppController } from '../../ticketGenerator.controller';
-import { AppService } from '../../ticketGenerator.service';
-import { AppModule } from '../../ticketGenerator.module';
-import { TicketDto } from '../../dto';
+import { ticketGeneratorController } from '../../ticketGenerator.controller';
+import { ticketGeneratorService } from '../../ticketGenerator.service';
+import { ticketGeneratorModule } from '../../ticketGenerator.module';
 import { ticketStub } from '../stubs';
 
 describe('AppController Integration', () => {
   let moduleRef: TestingModule;
-  let appController: AppController;
-  let appService: AppService;
+  let appController: ticketGeneratorController;
+  let appService: ticketGeneratorService;
 
   beforeAll(async () => {
     moduleRef = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [ticketGeneratorModule],
     }).compile();
 
-    appController = moduleRef.get(AppController);
-    appService = moduleRef.get(AppService);
+    appController = moduleRef.get(ticketGeneratorController);
+    appService = moduleRef.get(ticketGeneratorService);
   });
 
   describe('Generate ticket', () => {

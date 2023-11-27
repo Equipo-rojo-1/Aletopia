@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './ticketGenerator.controller';
-import { AppService } from './ticketGenerator.service';
+import { ticketGeneratorController } from './ticketGenerator.controller';
+import { ticketGeneratorService } from './ticketGenerator.service';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({
@@ -12,7 +12,7 @@ import { JwtModule } from '@nestjs/jwt';
     }),
     JwtModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [ticketGeneratorController],
+  providers: [ticketGeneratorService],
 })
-export class AppModule {}
+export class ticketGeneratorModule {}

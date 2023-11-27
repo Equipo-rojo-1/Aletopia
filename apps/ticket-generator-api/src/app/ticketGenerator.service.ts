@@ -5,7 +5,7 @@ import QRCode from 'qrcode';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
-export class AppService {
+export class ticketGeneratorService {
   constructor(private jwt: JwtService, private config: ConfigService) {}
 
   async generateTicket(dto: TicketDto): Promise<string> {
