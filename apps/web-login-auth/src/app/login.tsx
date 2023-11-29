@@ -3,7 +3,7 @@ import { environment } from '../environments/environment';
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import { toast, Toaster } from 'sonner';
+import { toast } from 'sonner';
 import axios from 'axios';
 
 interface FormValues {
@@ -12,6 +12,7 @@ interface FormValues {
 }
 
 const Login: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formValues, setFormValues] = useState<FormValues>({
     email: '',
     password: '',
@@ -39,14 +40,15 @@ const Login: React.FC = () => {
         style: {
           background: 'rgba(255, 255, 255, 0.25)',
           color: 'rgb(5, 90, 20)',
-          border: 0
+          border: 0,
         },
       });
+      setIsLoggedIn(true);
     } catch (error) {
       toast.error('Error al iniciar sesión!', {
         style: {
           background: 'rgba(255, 255, 255, 0.25)',
-          border: 0
+          border: 0,
         },
       });
     }
@@ -62,53 +64,55 @@ const Login: React.FC = () => {
   }, []);
 
   return (
-    <LoginStyle>
-      <Toaster expand={true} richColors duration={1000} />
-      <MyForm onSubmit={handleSubmit}>
-        <img src={environment.imagePaths.logo} alt="logo" />
-        <h1>Iniciar Sesión</h1>
-        <label>
-          <ImgInput
-            src={environment.imagePaths.personal}
-            alt="logo"
-            adjust={refHeight}
-          />
-          <InputStyle
-            type="text"
-            id="refComponent"
-            name="email"
-            placeholder="Correo"
-            value={formValues.email}
-            onChange={handleInputChange}
-            autoComplete="true"
-            required
-          />
-        </label>
-        <label>
-          <ImgInput
-            src={environment.imagePaths.key}
-            alt="logo"
-            adjust={refHeight}
-          />
-          <InputStyle
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Contraseña"
-            value={formValues.password}
-            onChange={handleInputChange}
-            autoComplete="true"
-            required
-          />
-        </label>
-        <button type="submit">ENTRAR</button>
-        <div>
-          <span>
-            Recuperar<Link to="/">contraseña</Link>
-          </span>
-        </div>
-      </MyForm>
-    </LoginStyle>
+    <>
+      <LoginStyle>
+        <MyForm onSubmit={handleSubmit}>
+          <img src={environment.imagePaths.logo} alt="logo" />
+          <h1>Iniciar Sesión</h1>
+          <label>
+            <ImgInput
+              src={environment.imagePaths.personal}
+              alt="logo"
+              adjust={refHeight}
+            />
+            <InputStyle
+              type="text"
+              id="refComponent"
+              name="email"
+              placeholder="Correo"
+              value={formValues.email}
+              onChange={handleInputChange}
+              autoComplete="true"
+              required
+            />
+          </label>
+          <label>
+            <ImgInput
+              src={environment.imagePaths.key}
+              alt="logo"
+              adjust={refHeight}
+            />
+            <InputStyle
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Contraseña"
+              value={formValues.password}
+              onChange={handleInputChange}
+              autoComplete="true"
+              required
+            />
+          </label>
+          <button type="submit">ENTRAR</button>
+          <div>
+            <span>
+              Recuperar<Link to="/">contraseña</Link>
+            </span>
+          </div>
+        </MyForm>
+      </LoginStyle>
+      {isLoggedIn && (window.location.href = './dashboard')}
+    </>
   );
 };
 
