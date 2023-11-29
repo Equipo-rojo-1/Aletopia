@@ -7,4 +7,5 @@ export class CreatePersonaDto {
     direccion: string
     edad: number
     fechaNacimiento: Date
+    fechaIngreso: Date
 }

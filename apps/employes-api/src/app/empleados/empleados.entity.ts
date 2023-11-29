@@ -32,6 +32,6 @@ export class personal {
     fechaIngreso: Date;
 
     @OneToOne(() => User, (User) => User.id_cedula)
-    user: User
+    user: User;
 
 }
