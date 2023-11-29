@@ -1,55 +1,36 @@
-import styled from 'styled-components';
-
-import NxWelcome from './nx-welcome';
-
-import { Route, Routes, Link } from 'react-router-dom';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { Link } from 'react-router-dom';
+import Login from './login';
+import { FooterStyle, MyDiv } from './styles';
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="web-login-auth" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
+    <MyDiv>
+      <Login />
+      <FooterStyle role="navigation">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link target="_blank" to="https://Facebook.com">
+              Facebook
+            </Link>
           </li>
           <li>
-            <Link to="/page-2">Page 2</Link>
+            <Link target="_blank" to="https://Instagram.com">
+              Instagram
+            </Link>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="mailto:equiporojo250@gmail.com"
+              rel="noreferrer"
+            >
+              EquipoRojo@gmail.com
+            </a>
           </li>
         </ul>
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
-    </StyledApp>
+        <div><p>2023 - DevSoft. AletopiaZoo Versión: 0.1</p></div>
+      </FooterStyle>
+    </MyDiv>
   );
 }
 
