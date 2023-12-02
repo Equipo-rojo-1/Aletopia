@@ -1,4 +1,4 @@
-import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { personal } from '../empleados/empleados.entity';
 import { CreateUserDto } from './dto/create.user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,14 +12,15 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class UsuarioService {
 
-    constructor(@InjectRepository(User) private UserRepository: Repository<User>,
-        @InjectRepository(personal) private personalRepository: Repository<personal>,
+    constructor(
+        @InjectRepository(User) private readonly UserRepository: Repository<User>,
+        @InjectRepository(personal) private readonly personalRepository: Repository<personal>,
         private jwtAuthService: JwtService) { }
 
-    async CreateUsuario(usuario: CreateUserDto) {
+    async createUsuario(usuario: CreateUserDto) {
         const personaExists = this.personalRepository.findOneBy({ cedula: usuario.idCedula })
         if (!personaExists) {
-            throw new BadRequestException('The person not exists')
+            throw new BadRequestException("Username does not exist")
         }
         else {
             const newUser = this.UserRepository.create()
@@ -30,15 +31,15 @@ export class UsuarioService {
         }
     }
 
-    async Login(user: LoginUserDto) {
+    async login(user: LoginUserDto) {
         const { username, password } = user
         const userExists = await this.UserRepository.findOneBy({ username })
         if (!userExists) {
-            throw new HttpException('Incorrect', 403)
+            throw new BadRequestException("Invalid Post")
         }
         const verifyPassword = await compare(password, userExists.password)
         if (!verifyPassword) {
-            throw new HttpException('Incorrect', 403)
+            throw new BadRequestException("Invalid Post")
         }
         const payload = { id: userExists.id, username: userExists.username }
         const token = this.jwtAuthService.sign(payload)
@@ -49,24 +50,24 @@ export class UsuarioService {
         return data
     }
 
-    GetUsers() {
+    getUsers() {
         return this.UserRepository.find()
     }
 
-    async GetUserBy(id_cedula: string) {
+    async getUserBy(id_cedula: string) {
         const personaExists = await this.UserRepository.findOne({
             where: {
                 id_cedula
             }
         })
         if (!personaExists) {
-            throw new HttpException('Not Found', 404)
+            throw new BadRequestException()
         } else {
             return personaExists
         }
     }
 
-    async DeleteUser(id_cedula: string) {
+    async deleteUser(id_cedula: string) {
         const userExists = await this.UserRepository.findOne({
             where: {
                 id_cedula
@@ -74,7 +75,7 @@ export class UsuarioService {
         })
 
         if (!userExists) {
-            throw new HttpException('Not Found', 404)
+            throw new BadRequestException()
 
         }
         else {
@@ -82,7 +83,7 @@ export class UsuarioService {
         }
     }
 
-    async UpdateUser(id_cedula: string, usuario: UpdateUser) {
+    async updateUser(id_cedula: string, usuario: UpdateUser) {
         const personaExists = await this.UserRepository.findOne({
             where: {
                 id_cedula
@@ -90,7 +91,7 @@ export class UsuarioService {
         })
 
         if (!personaExists) {
-            throw new HttpException('Incorrect', 403)
+            throw new BadRequestException()
         }
         else {
             const update_user = this.UserRepository.create()

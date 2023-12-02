@@ -1,5 +1,18 @@
+import { IsEmail, IsString, MinLength } from "class-validator";
+import { Transform } from 'class-transformer';
+
 export class CreateUserDto {
-    username: string
-    password: string
-    idCedula: string
+
+    @IsEmail()
+    username: string;
+
+    @Transform(({ value }) => value.trim())
+    @IsString()
+    @MinLength(6)
+    password: string;
+
+    @Transform(({ value }) => value.trim())
+    @IsString()
+    @MinLength(7)
+    idCedula: string;
 }

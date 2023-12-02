@@ -4,31 +4,31 @@ import { User } from "../usuario/usuario.entity";
 @Entity()
 export class personal {
 
-    @PrimaryColumn()
+    @PrimaryColumn({ nullable: false })
     cedula: string;
 
-    @Column()
+    @Column({ nullable: false })
     nombre: string;
 
-    @Column()
+    @Column({ nullable: false })
     apellido: string;
 
-    @Column()
+    @Column({ default: '00000000000' })
     telefono: string;
 
-    @Column()
+    @Column({ default: 'UNICA' })
     direccion: string;
 
-    @Column()
+    @Column({ unique: true, nullable: false })
     correo: string;
 
     @Column()
     edad: number;
 
-    @Column({ name: 'fecha_nacimiento', type: 'date'})
+    @Column({ name: 'fecha_nacimiento', type: 'date' })
     fechaNacimiento: Date;
 
-    @Column({name: 'fecha_ingreso', type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
+    @Column({ name: 'fecha_ingreso', type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     fechaIngreso: Date;
 
     @OneToOne(() => User, (User) => User.id_cedula)

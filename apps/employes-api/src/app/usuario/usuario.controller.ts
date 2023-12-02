@@ -8,35 +8,35 @@ import { User } from './usuario.entity';
 @Controller('usuario')
 export class UsuarioController {
 
-    constructor(private UserService: UsuarioService) { }
+    constructor(private readonly UserService: UsuarioService) { }
 
-    @Post()
+    @Post('create')
     AddUser(@Body() newUser: CreateUserDto): Promise<User> {
-        return this.UserService.CreateUsuario(newUser)
+        return this.UserService.createUsuario(newUser)
     }
 
     @Post('login')
     LoginUser(@Body() usuario: LoginUserDto) {
-        return this.UserService.Login(usuario)
+        return this.UserService.login(usuario)
     }
 
     @Get()
     GetUsers(): Promise<User[]> {
-        return this.UserService.GetUsers()
-    }
+        return this.UserService.getUsers()
+    } 
 
     @Get(':id_cedula')
     GetUserBy(@Param('id_cedula') idCedula: string): Promise<User> {
-        return this.UserService.GetUserBy(idCedula)
+        return this.UserService.getUserBy(idCedula)
     }
 
     @Delete(':id_cedula')
     DeleteUser(@Param('id_cedula') id_cedula: string) {
-        return this.UserService.DeleteUser(id_cedula)
+        return this.UserService.deleteUser(id_cedula)
     }
 
     @Patch(':id_cedula')
     UpdateUser(@Param('id_cedula') id_cedula: string, @Body() usuario: UpdateUser) {
-        return this.UserService.UpdateUser(id_cedula, usuario)
+        return this.UserService.updateUser(id_cedula, usuario)
     }
 }

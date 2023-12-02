@@ -1,1 +1,1 @@
-export const jwtConstants ={secret: 'semillasecret'}
+export const jwtConstants = { secret: 'semillasecret' }

@@ -1,6 +1,6 @@
 import { UpdatePersonaDto } from './dto/update.persona.dto';
 import { CreatePersonaDto } from './dto/create.persona.dto';
-import { HttpException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { personal } from './empleados.entity';
 import { Repository } from 'typeorm';
@@ -17,12 +17,12 @@ export class EmpleadosService {
         })
 
         if (employeExists) {
-            throw new HttpException('Not valid', 400)
+            throw new BadRequestException('Not exists')
         }
 
         else {
-            const newpersona = this.personalRepository.create(persona)
-            return this.personalRepository.save(newpersona)
+            const newPersona = this.personalRepository.create(persona)
+            return this.personalRepository.save(newPersona)
         }
     }
 
@@ -38,7 +38,7 @@ export class EmpleadosService {
         })
 
         if (!employeExists) {
-            throw new HttpException('Incorrect', 403)
+            throw new BadRequestException('Not exists')
         }
 
         else {
@@ -54,7 +54,7 @@ export class EmpleadosService {
         })
 
         if (!employeExists) {
-            throw new HttpException('Incorrect', 403)
+            throw new BadRequestException('Not exists')
 
         }
         else {
@@ -70,7 +70,7 @@ export class EmpleadosService {
         })
 
         if (!employeExists) {
-            throw new HttpException('Incorrect', 403)
+            throw new BadRequestException('Not exists')
         }
         else {
             return this.personalRepository.update({ cedula }, persona)

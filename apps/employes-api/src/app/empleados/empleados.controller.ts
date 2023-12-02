@@ -7,7 +7,7 @@ import { personal } from './empleados.entity';
 @Controller('empleados')
 export class EmpleadosController {
 
-    constructor(private personaService: EmpleadosService) { }
+    constructor(private readonly personaService: EmpleadosService) { }
 
     @Get()
     GetPersona(): Promise<personal[]> {
@@ -19,7 +19,7 @@ export class EmpleadosController {
         return this.personaService.GetPersonaBy(cedula)
     }
 
-    @Post()
+    @Post('create')
     CreatePersona(@Body() newpersona: CreatePersonaDto): Promise<personal> {
         return this.personaService.CreatePersona(newpersona)
     }
