@@ -17,87 +17,87 @@ export class UsuarioService {
         @InjectRepository(personal) private readonly personalRepository: Repository<personal>,
         private jwtAuthService: JwtService) { }
 
-    async createUsuario(usuario: CreateUserDto) {
-        const personaExists = this.personalRepository.findOneBy({ cedula: usuario.idCedula })
-        if (!personaExists) {
-            throw new BadRequestException("Username does not exist")
+    async createUser(usuario: CreateUserDto) {
+        const persona_exists = this.personalRepository.findOneBy({ cedula: usuario.idCedula });
+        if (!persona_exists) {
+            throw new BadRequestException("Username does not exist");
         }
         else {
-            const newUser = this.UserRepository.create()
-            newUser.username = usuario.username
-            newUser.password = await hash(usuario.password, 10)
-            newUser.id_cedula = usuario.idCedula
-            return this.UserRepository.save(newUser);
+            const new_user = this.UserRepository.create();
+            new_user.username = usuario.username;
+            new_user.password = await hash(usuario.password, 10);
+            new_user.idCedula = usuario.idCedula;
+            return this.UserRepository.save(new_user);
         }
     }
 
     async login(user: LoginUserDto) {
-        const { username, password } = user
-        const userExists = await this.UserRepository.findOneBy({ username })
-        if (!userExists) {
-            throw new BadRequestException("Invalid Post")
+        const { username, password } = user;
+        const user_exists = await this.UserRepository.findOneBy({ username });
+        if (!user_exists) {
+            throw new BadRequestException("invalid credentials");
         }
-        const verifyPassword = await compare(password, userExists.password)
-        if (!verifyPassword) {
-            throw new BadRequestException("Invalid Post")
+        const verify_password = await compare(password, user_exists.password);
+        if (!verify_password) {
+            throw new BadRequestException("invalid credentials");
         }
-        const payload = { id: userExists.id, username: userExists.username }
-        const token = this.jwtAuthService.sign(payload)
+        const payload = { id: user_exists.id, username: user_exists.username }
+        const token = this.jwtAuthService.sign(payload);
         const data = {
-            Usuario: userExists,
+            Usuario: user_exists,
             token
         }
-        return data
+        return data;
     }
 
-    getUsers() {
-        return this.UserRepository.find()
+    async getUsers() {
+        return await this.UserRepository.find();
     }
 
-    async getUserBy(id_cedula: string) {
-        const personaExists = await this.UserRepository.findOne({
+    async getUserBy(id: string) {
+        const persona_exists = await this.UserRepository.findOne({
             where: {
-                id_cedula
+                idCedula: id
             }
         })
-        if (!personaExists) {
-            throw new BadRequestException()
+        if (!persona_exists) {
+            throw new BadRequestException('invalid id');
         } else {
-            return personaExists
+            return persona_exists;
         }
     }
 
-    async deleteUser(id_cedula: string) {
-        const userExists = await this.UserRepository.findOne({
+    async deleteUser(id: string) {
+        const user_exists = await this.UserRepository.findOne({
             where: {
-                id_cedula
+                idCedula: id
             }
         })
 
-        if (!userExists) {
-            throw new BadRequestException()
+        if (!user_exists) { 
+            throw new BadRequestException('invalid id');
 
         }
         else {
-            return this.UserRepository.delete({ id_cedula })
+            return  await this.UserRepository.delete({ idCedula: id });
         }
     }
 
-    async updateUser(id_cedula: string, usuario: UpdateUser) {
-        const personaExists = await this.UserRepository.findOne({
+    async updateUser(id: string, usuario: UpdateUser) {
+        const persona_exists = await this.UserRepository.findOne({
             where: {
-                id_cedula
+                idCedula: id
             }
         })
 
-        if (!personaExists) {
-            throw new BadRequestException()
+        if (!persona_exists) {
+            throw new BadRequestException('invalid id');
         }
         else {
-            const update_user = this.UserRepository.create()
-            update_user.username = usuario.username
-            update_user.password = await hash(usuario.password, 10)
-            return this.UserRepository.update({ id_cedula }, update_user)
+            const update_user = this.UserRepository.create();
+            update_user.username = usuario.username;
+            update_user.password = await hash(usuario.password, 10);
+            return await this.UserRepository.update({ idCedula: id }, update_user);
         }
     }
 }

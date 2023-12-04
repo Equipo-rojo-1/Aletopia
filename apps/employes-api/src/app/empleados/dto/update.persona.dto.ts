@@ -1,12 +1,53 @@
-export class UpdatePersonaDto {
+import { Transform } from 'class-transformer';
+import {
+  IsDateString,
+  IsEmail,
+  IsInt,
+  IsOptional,
+  IsString,
+  MinLength,
+} from 'class-validator';
 
-    cedula?: string;
-    nombre?: string;
-    correo?: string;
-    apellido?: string;
-    telefono?: string;
-    direccion?: string;
-    edad?: number;
-    fechaNacimiento?: Date;
-    fechaIngreso?: Date;
+export class UpdatePersonaDto {
+  
+  @Transform(({ value }) => value.trim())
+  @IsString()
+  @MinLength(7)
+  @IsOptional()
+  cedula?: string;
+
+  @Transform(({ value }) => value.trim())
+  @IsString()
+  @MinLength(1)
+  nombre?: string;
+
+  @IsEmail()
+  @IsOptional()
+  correo?: string;
+
+  @Transform(({ value }) => value.trim())
+  @IsString()
+  @MinLength(1)
+  @IsOptional()
+  apellido?: string;
+
+  @Transform(({ value }) => value.trim())
+  @IsString()
+  @MinLength(10)
+  @IsOptional()
+  telefono?: string;
+
+  @Transform(({ value }) => value.trim())
+  @IsString()
+  @MinLength(1)
+  @IsOptional()
+  direccion?: string;
+
+  @IsInt()
+  @IsOptional()
+  edad?: number;
+
+  @IsDateString()
+  @IsOptional()
+  fechaNacimiento?: Date;
 }

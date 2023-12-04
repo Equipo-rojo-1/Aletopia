@@ -14,7 +14,7 @@ export class User {
     password: string;
 
     @Column({ name: 'id_cedula' })
-    id_cedula: string;
+    idCedula: string;
 
     @OneToOne(() => personal)
     @JoinColumn({ name: 'id_cedula' })

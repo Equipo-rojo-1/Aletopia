@@ -17,7 +17,7 @@ export class EmpleadosService {
         })
 
         if (employeExists) {
-            throw new BadRequestException('Not exists')
+            throw new BadRequestException('the employee already exists')
         }
 
         else {
@@ -38,7 +38,7 @@ export class EmpleadosService {
         })
 
         if (!employeExists) {
-            throw new BadRequestException('Not exists')
+            throw new BadRequestException('the employee does not exist')
         }
 
         else {
@@ -54,7 +54,7 @@ export class EmpleadosService {
         })
 
         if (!employeExists) {
-            throw new BadRequestException('Not exists')
+            throw new BadRequestException('the employee does not exist')
 
         }
         else {
@@ -70,7 +70,7 @@ export class EmpleadosService {
         })
 
         if (!employeExists) {
-            throw new BadRequestException('Not exists')
+            throw new BadRequestException('the employee does not exist')
         }
         else {
             return this.personalRepository.update({ cedula }, persona)

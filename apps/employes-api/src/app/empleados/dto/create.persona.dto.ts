@@ -1,5 +1,5 @@
 import { Transform } from "class-transformer";
-import { IsEmail, IsString, MinLength } from "class-validator";
+import { IsDateString, IsEmail, IsInt, IsOptional, IsString, MinLength } from "class-validator";
 
 export class CreatePersonaDto {
 
@@ -24,14 +24,19 @@ export class CreatePersonaDto {
     @Transform(({ value }) => value.trim())
     @IsString()
     @MinLength(10)
-    telefono: string;
+    @IsOptional()
+    telefono?: string;
 
     @Transform(({ value }) => value.trim())
     @IsString()
     @MinLength(1)
-    direccion: string;
+    @IsOptional()
+    direccion?: string;
 
+    @IsInt()
+    @IsOptional()
     edad?: number;
+
+    @IsDateString()
     fechaNacimiento: Date;
-    fechaIngreso?: Date;
 }
