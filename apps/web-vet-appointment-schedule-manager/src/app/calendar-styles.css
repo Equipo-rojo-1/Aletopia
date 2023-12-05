@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(245, 245, 245); /* Cambia el color a tu preferencia */
+}
+
+.fc-view {
+  background: linear-gradient(to bottom, #ffe8e8, #8d8d5e);
+  border-radius:60px;
+}
+
+.fc-daygrid-event {
+  background-color: #0010f1;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 0%;
+  font-size: 60px; 
+}
+

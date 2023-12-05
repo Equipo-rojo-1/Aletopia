@@ -1,13 +1,15 @@
 import React from 'react';
+
 import { Routes, Route } from 'react-router-dom';
+
 import Calendar from './Calendar';
 
-export function App() {
+export default function App() {
   return (
+    
     <Routes>
-      <Route path="/calendar" element={<div><Calendar /></div>} />
+      <Route path="/Calendar" element={<Calendar />} />
     </Routes>
   );
+  
 }
-
-export default App;
