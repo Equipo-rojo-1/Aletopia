@@ -5,9 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import './calendar-styles.css';
 
-interface CalendarProps {}
-
-const Calendar: React.FC<CalendarProps> = () => {
+const Calendar: React.FC = () => {
   return (
     <div className="calendar-container">
       <h2 className="calendar-header">Cronograma de Citas</h2>
