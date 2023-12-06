@@ -14,5 +14,5 @@ export class CreateUserDto {
     @Transform(({ value }) => value.trim())
     @IsString()
     @MinLength(7)
-    idCedula: string;
+    cedula: string;
 }

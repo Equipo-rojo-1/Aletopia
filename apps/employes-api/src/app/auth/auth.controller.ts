@@ -1,8 +1,6 @@
-/*
-https://docs.nestjs.com/controllers#controllers
-*/
-
 import { Controller } from '@nestjs/common';
 
-@Controller()
-export class AuthController {}
+@Controller('auth')
+export class AuthController {
+
+}

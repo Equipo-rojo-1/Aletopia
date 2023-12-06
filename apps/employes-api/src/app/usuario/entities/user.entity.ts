@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, DeleteDateColumn } from "typeorm";
-import { personal } from "../empleados/empleados.entity";
+import { Person } from "../../empleados/entities/employe.entity";
 
 @Entity()
 export class User {
@@ -13,12 +13,12 @@ export class User {
     @Column({ nullable: false })
     password: string;
 
-    @Column({ name: 'id_cedula' })
-    idCedula: string;
+    @Column({ nullable: false })
+    cedula: string;
 
-    @OneToOne(() => personal)
-    @JoinColumn({ name: 'id_cedula' })
-    personal: personal;
+    @OneToOne(() => Person)
+    @JoinColumn({ name: 'cedula' })
+    personal: Person;
 
     @DeleteDateColumn()
     deleteAT: Date;

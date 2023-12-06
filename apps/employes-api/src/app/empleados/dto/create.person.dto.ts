@@ -1,7 +1,7 @@
-import { Transform } from "class-transformer";
 import { IsDateString, IsEmail, IsInt, IsOptional, IsString, MinLength } from "class-validator";
+import { Transform } from "class-transformer";
 
-export class CreatePersonaDto {
+export class CreatePersonDto {
 
     @Transform(({ value }) => value.trim())
     @IsString()

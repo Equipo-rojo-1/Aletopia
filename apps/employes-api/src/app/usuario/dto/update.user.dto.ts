@@ -12,3 +12,4 @@ export class UpdateUser {
   @IsOptional()
   password?: string;
 }
+ 

@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryColumn, OneToOne } from 'typeorm';
-import { User } from '../usuario/usuario.entity';
+import { User } from '../../usuario/entities/user.entity';
 
 @Entity()
-export class personal {
+export class Person {
   @PrimaryColumn({ nullable: false })
   cedula: string;
 
@@ -26,7 +26,7 @@ export class personal {
 
   @Column({ name: 'fecha_nacimiento', type: 'date' })
   fechaNacimiento: Date;
-
+ 
   @Column({
     name: 'fecha_ingreso',
     type: 'datetime',
@@ -34,6 +34,6 @@ export class personal {
   })
   fechaIngreso: Date;
 
-  @OneToOne(() => User, (User) => User.idCedula)
+  @OneToOne(() => User, (User) => User.cedula)
   user: User;
 }

@@ -1,4 +1,4 @@
-import { Transform } from 'class-transformer';
+import { Transform } from "class-transformer";
 import {
   IsDateString,
   IsEmail,
@@ -6,10 +6,10 @@ import {
   IsOptional,
   IsString,
   MinLength,
-} from 'class-validator';
+} from "class-validator";
 
-export class UpdatePersonaDto {
-  
+export class UpdatePersonDto {
+
   @Transform(({ value }) => value.trim())
   @IsString()
   @MinLength(7)

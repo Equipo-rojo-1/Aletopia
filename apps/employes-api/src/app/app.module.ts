@@ -1,5 +1,5 @@
-import { EmpleadosModule } from './empleados/empleados.module';
-import { UsuarioModule } from './usuario/usuario.module';
+import { EmpleadosModule } from './empleados/employe.module';
+import { UserModule } from './usuario/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
@@ -25,7 +25,7 @@ const db_pass = process.env.DATA_BASE_PASSWORD;
       synchronize: true
     }),
     EmpleadosModule,
-    UsuarioModule,
+    UserModule,
     AuthModule,
   ],
 })

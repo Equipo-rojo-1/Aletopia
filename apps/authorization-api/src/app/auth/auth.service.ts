@@ -1,0 +1,34 @@
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { LoginUserDto } from './usuario/dto/login.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from './usuario/entities/usuario.entity';
+import { JwtService } from '@nestjs/jwt';
+import { Repository } from 'typeorm';
+import { compare } from 'bcrypt';
+
+@Injectable()
+export class AuthService {
+
+    constructor(
+        @InjectRepository(User) private readonly UserRepository: Repository<User>,
+        private jwtAuthService: JwtService) { }
+
+    async login(user: LoginUserDto) {
+        const { username, password } = user;
+        const userExists = await this.UserRepository.findOneBy({ username });
+
+        if (!userExists) throw new BadRequestException("invalid credentials");
+
+        const verifyPassword = await compare(password, userExists.password);
+
+        if (!verifyPassword) throw new BadRequestException("invalid credentials");
+
+        const payload = { id: userExists.id, username: userExists.username }
+        const token = this.jwtAuthService.sign(payload);
+        const data = {
+            Usuario: userExists,
+            token
+        }
+        return data;
+    }
+}
