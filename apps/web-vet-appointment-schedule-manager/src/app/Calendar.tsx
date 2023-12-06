@@ -5,6 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import './calendar-styles.css';
 
+
 const Calendar: React.FC = () => {
   return (
     <div className="calendar-container">
