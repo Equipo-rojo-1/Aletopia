@@ -1,3 +1,4 @@
+import { Animal } from '@aletopia/libs/zoo-catalog-interfaces';
 export type ZoneName = 'acuario' | 'insectario' | 'carnivoros' | 'herbivoros' | 'aviario'
 
 export type Zone = {
@@ -12,12 +13,6 @@ export type Habitat = {
   animales: Animal[]
 }
 
-export type Animal = {
-  codigoAnimal:string;
-  nombreAnimalComun:string;
-  fechaLlegada:string;
-  estado: 'saludable'|'grave'|'regular';
-  sexo:string;
-}
+
 
 

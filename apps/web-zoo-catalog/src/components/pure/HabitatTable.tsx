@@ -1,5 +1,5 @@
+import { Animal } from '@aletopia/libs/zoo-catalog-interfaces';
 import React from 'react';
-import { Animal } from '../../utils/types';
 
 export default function HabitatTable({ animals }: { animals: Animal[] }) {
   return (

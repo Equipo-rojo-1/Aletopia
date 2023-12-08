@@ -5,7 +5,7 @@ import hash from './../../assets/img/hash.svg';
 import maleGender from './../../assets/img/male-sign.svg';
 import femaleGender from './../../assets/img/female-sign.svg';
 import calendar from './../../assets/img/calendar.svg';
-import { Animal } from './../../utils/types';
+import { Animal } from '@aletopia/libs/zoo-catalog-interfaces';
 
 export default function AnimalCard({ animal }: { animal: Animal }) {
   const animalState = {
