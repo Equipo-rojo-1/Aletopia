@@ -1,0 +1,15 @@
+{
+  "name": "ticket-generator-api",
+  "version": "1.0.0",
+  "description": "Ticket Generator API",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nx serve ticket-generator-api",
+    "test": "nx test ticket-generator-api",
+    "test:watch": "nx test:watch ticket-generator-api"
+  },
+  "nx": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
