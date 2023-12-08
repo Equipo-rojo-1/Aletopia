@@ -1,0 +1,608 @@
+{
+  "acuario": {
+    "nombreZona": "acuario",
+    "habitats": [
+      {
+        "idHabitat": 1,
+        "nombreHabitat": "peces de agua salada",
+        "cantidad": 4,
+        "animales": [
+          {
+            "codigoAnimal": "001PK",
+            "nombreAnimalComun": "pez angel",
+            "fechaLlegada": "01/05/2000",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002PK",
+            "nombreAnimalComun": "pez payaso",
+            "fechaLlegada": "01/05/2000",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "003PK",
+            "nombreAnimalComun": "pez cebra",
+            "fechaLlegada": "01/05/2000",
+            "estado": "enfermo",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "004PK",
+            "nombreAnimalComun": "pez koi",
+            "fechaLlegada": "01/05/2000",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          }
+        ]
+      },
+      {
+        "idHabitat": 2,
+        "nombreHabitat": "rayas",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001RY",
+            "nombreAnimalComun": "raya gigante",
+            "fechaLlegada": "01/07/2000",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002RY",
+            "nombreAnimalComun": "raya comun",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          }
+        ]
+      },
+      {
+        "idHabitat": 3,
+        "nombreHabitat": "delfines",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001DF",
+            "nombreAnimalComun": "delfin nariz de botella",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002DF",
+            "nombreAnimalComun": "delfin nariz de botella",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "003DF",
+            "nombreAnimalComun": "delfin nariz de botella",
+            "fechaLlegada": "01/06/2004",
+            "estado": "enfermo",
+            "sexo": "desconocido"
+          }
+        ]
+      }
+    ]
+  },
+  "aviario": {
+    "nombreZona": "aviario",
+    "habitats": [
+      {
+        "idHabitat": 1,
+        "nombreHabitat": "canario",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001CO",
+            "nombreAnimalComun": "canario amarillo",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "002CO",
+            "nombreAnimalComun": "canario comun",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "003CO",
+            "nombreAnimalComun": "canario amarillo",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "idHabitat": 2,
+        "nombreHabitat": "guacamayas",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001GM",
+            "nombreAnimalComun": "guacamaya bandera",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "002GM",
+            "nombreAnimalComun": "guacamaya verde",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          }
+        ]
+      },
+      {
+        "idHabitat": 3,
+        "nombreHabitat": "turpiales",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001TP",
+            "nombreAnimalComun": "turpial comun",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002TP",
+            "nombreAnimalComun": "turpial comun",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "003TP",
+            "nombreAnimalComun": "turpial comun",
+            "fechaLlegada": "01/06/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      }
+    ]
+  },
+  "carnivoros": {
+    "nombreZona": "carnivoros",
+    "habitats": [
+      {
+        "idHabitat": 1,
+        "nombreHabitat": "leones",
+        "cantidad": 4,
+        "animales": [
+          {
+            "codigoAnimal": "001LN",
+            "nombreAnimalComun": "leon del congo",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002LN",
+            "nombreAnimalComun": "leon del congo",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "003LN",
+            "nombreAnimalComun": "leon del norte",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "004LN",
+            "nombreAnimalComun": "leon del norte",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 2,
+        "nombreHabitat": "tigres",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001TR",
+            "nombreAnimalComun": "tigre bengala",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002TR",
+            "nombreAnimalComun": "tigre de Amur",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 3,
+        "nombreHabitat": "leopardo",
+        "cantidad": 3,
+        "animales": [
+          {
+            "codigoAnimal": "001LP",
+            "nombreAnimalComun": "leopardo comun",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002LP",
+            "nombreAnimalComun": "leopardo comun",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "003LP",
+            "nombreAnimalComun": "leopardo comun",
+            "fechaLlegada": "01/06/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 4,
+        "nombreHabitat": "lobos",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001LB",
+            "nombreAnimalComun": "lobo gris",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002LB",
+            "nombreAnimalComun": "lobo europeo",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 5,
+        "nombreHabitat": "hienas",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001HN",
+            "nombreAnimalComun": "hiena comun",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      }
+    ]
+  },
+  "herbivoros": {
+    "nombreZona": "herbivoros",
+    "habitats": [
+      {
+        "idHabitat": 1,
+        "nombreHabitat": "monos",
+        "cantidad": 6,
+        "animales": [
+          {
+            "codigoAnimal": "001MN",
+            "nombreAnimalComun": "mono capuchino",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002MN",
+            "nombreAnimalComun": "mono capuchino",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "003MN",
+            "nombreAnimalComun": "mono capuchino",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "004MN",
+            "nombreAnimalComun": "macaco",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          },
+          {
+            "codigoAnimal": "005MN",
+            "nombreAnimalComun": "macaco",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "006MN",
+            "nombreAnimalComun": "macaco",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 2,
+        "nombreHabitat": "cebra",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001ZB",
+            "nombreAnimalComun": "cebra comun",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002ZB",
+            "nombreAnimalComun": "cebra comun",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "idHabitat": 3,
+        "nombreHabitat": "jirafas",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001JF",
+            "nombreAnimalComun": "jirafa del sur",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "idHabitat": 4,
+        "nombreHabitat": "panda",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001PD",
+            "nombreAnimalComun": "panda chino",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002PD",
+            "nombreAnimalComun": "panda chino",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 5,
+        "nombreHabitat": "elefantes",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001EF",
+            "nombreAnimalComun": "elefante asiatico",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002EF",
+            "nombreAnimalComun": "elefante asiatico",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 6,
+        "nombreHabitat": "rinoceronte",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001RT",
+            "nombreAnimalComun": "rinoceronte blanco",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "idHabitat": 7,
+        "nombreHabitat": "venados",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001VN",
+            "nombreAnimalComun": "venado de cola blanca",
+            "fechaLlegada": "01/05/2015",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002VN",
+            "nombreAnimalComun": "venado de cola blanca",
+            "fechaLlegada": "01/05/2015",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      }
+    ]
+  },
+  "insectario": {
+    "nombreZona": "insectario",
+    "habitats": [
+      {
+        "idHabitat": 1,
+        "nombreHabitat": "mariposas",
+        "cantidad": 6,
+        "animales": [
+          {
+            "codigoAnimal": "001MP",
+            "nombreAnimalComun": "monarca",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002MP",
+            "nombreAnimalComun": "monarca",
+            "fechaLlegada": "01/05/2002",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "003MP",
+            "nombreAnimalComun": "moteada",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "004MP",
+            "nombreAnimalComun": "moteada",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "005MP",
+            "nombreAnimalComun": "moteada",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "006MP",
+            "nombreAnimalComun": "negra",
+            "fechaLlegada": "01/05/2004",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          }
+        ]
+      },
+      {
+        "idHabitat": 2,
+        "nombreHabitat": "araña",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001AM",
+            "nombreAnimalComun": "araña mona",
+            "fechaLlegada": "01/07/2007",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002AM",
+            "nombreAnimalComun": "araña negra",
+            "fechaLlegada": "01/05/2008",
+            "estado": "saludable",
+            "sexo": "?"
+          }
+        ]
+      },
+      {
+        "idHabitat": 3,
+        "nombreHabitat": "serpiente",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001SP",
+            "nombreAnimalComun": "serpiente comun",
+            "fechaLlegada": "01/05/2003",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      },
+      {
+        "idHabitat": 4,
+        "nombreHabitat": "insecto palo",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001IP",
+            "nombreAnimalComun": "insecto palo comun",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          },
+          {
+            "codigoAnimal": "002IP",
+            "nombreAnimalComun": "insecto palo comun",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "desconocido"
+          }
+        ]
+      },
+      {
+        "idHabitat": 5,
+        "nombreHabitat": "anaconda",
+        "cantidad": 2,
+        "animales": [
+          {
+            "codigoAnimal": "001AN",
+            "nombreAnimalComun": "anaconda beni",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "macho"
+          },
+          {
+            "codigoAnimal": "002AN",
+            "nombreAnimalComun": "anaconda amarilla",
+            "fechaLlegada": "01/05/2020",
+            "estado": "saludable",
+            "sexo": "hembra"
+          }
+        ]
+      },
+      {
+        "idHabitat": 6,
+        "nombreHabitat": "escarabajo",
+        "cantidad": 1,
+        "animales": [
+          {
+            "codigoAnimal": "001EC",
+            "nombreAnimalComun": "escarabajo hercules",
+            "fechaLlegada": "01/05/2010",
+            "estado": "saludable",
+            "sexo": "macho"
+          }
+        ]
+      }
+    ]
+  }
+}
