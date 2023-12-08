@@ -23,8 +23,8 @@ async function bootstrap() {
     optionsSuccessStatus: 204,
     credentials: true,
   });
-
-  const port = process.env.AUTH_PORT || 3000;
+ 
+  const port = process.env.AUTH_PORT;
   await app.listen(port);
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`

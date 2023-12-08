@@ -22,8 +22,8 @@ export class UserController {
     }
  
     @Get(':cedula')
-    getUserBy(@Param('cedula') cedula: string): Promise<User> {
-        return this.userService.getUserBy(cedula)
+    getUserByID(@Param('cedula') cedula: string): Promise<User> {
+        return this.userService.getUserByID(cedula)
     }
 
     @Delete(':cedula')

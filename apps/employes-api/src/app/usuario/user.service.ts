@@ -34,7 +34,7 @@ export class UserService {
         return await this.userRepository.find();
     }
 
-    async getUserBy(id: string) {
+    async getUserByID(id: string) {
         const personExists = await this.userRepository.findOne({
             where: {
                 cedula: id

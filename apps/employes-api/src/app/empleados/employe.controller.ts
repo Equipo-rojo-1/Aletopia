@@ -17,12 +17,12 @@ export class EmpleadosController {
     }
 
     @Get(':cedula')
-    getPersonBy(@Param('cedula') cedula: string): Promise<Person> {
-        return this.personService.getPersonBy(cedula)
+    getPersonByID(@Param('cedula') cedula: string): Promise<Person> {
+        return this.personService.getPersonByID(cedula)
     }
 
     @Post('create')
-    greatePerson(@Body() person: CreatePersonDto): Promise<Person> {
+    createPerson(@Body() person: CreatePersonDto): Promise<Person> {
         return this.personService.createPerson(person)
     }
 
