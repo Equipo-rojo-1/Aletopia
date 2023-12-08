@@ -33,10 +33,6 @@ export class CreatePersonDto {
     @IsOptional()
     direccion?: string;
 
-    @IsInt()
-    @IsOptional()
-    edad?: number;
-
     @IsDateString()
     fechaNacimiento: Date;
 }
