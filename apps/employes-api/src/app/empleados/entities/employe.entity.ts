@@ -15,14 +15,11 @@ export class Person {
   @Column({ default: '00000000000' })
   telefono: string;
 
-  @Column({ default: 'UNICA' })
+  @Column({ default: 'Direccción Unica' })
   direccion: string;
 
   @Column({ unique: true, nullable: false })
   correo: string;
-
-  @Column({ default: 0 })
-  edad: number;
 
   @Column({ name: 'fecha_nacimiento', type: 'date' })
   fechaNacimiento: Date;
