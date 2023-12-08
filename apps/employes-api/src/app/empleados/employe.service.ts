@@ -15,7 +15,7 @@ export class EmpleadosService {
                 cedula: person.cedula
             }
         })
-        console.log(employeExists)
+      
         if (employeExists) throw new HttpException('the employee already exists', 403);
 
         const newPerson = this.personRepository.create(person)
