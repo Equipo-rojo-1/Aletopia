@@ -26,7 +26,7 @@ export class EmpleadosService {
         return this.personRepository.find()
     }
 
-    async getPersonByID(cedula: string) {
+    async getPersonByCedula(cedula: string) {
         const employeExists = await this.personRepository.findOne({
             where: {
                 cedula
