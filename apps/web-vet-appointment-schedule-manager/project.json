@@ -18,11 +18,6 @@
         "assets": [
           "apps/web-vet-appointment-schedule-manager/src/favicon.ico",
           "apps/web-vet-appointment-schedule-manager/src/assets",
-          {
-            "input": "libs/common-assets/assets/src/lib/images",
-            "glob": "**/*",
-            "output": "assets"
-          }
         ],
         "styles": [],
         "scripts": [],
