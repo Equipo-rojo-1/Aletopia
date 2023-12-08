@@ -43,10 +43,6 @@ export class UpdatePersonDto {
   @IsOptional()
   direccion?: string;
 
-  @IsInt()
-  @IsOptional()
-  edad?: number;
-
   @IsDateString()
   @IsOptional()
   fechaNacimiento?: Date;
