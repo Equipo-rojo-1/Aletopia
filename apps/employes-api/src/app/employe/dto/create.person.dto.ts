@@ -1,4 +1,4 @@
-import { IsDateString, IsEmail, IsInt, IsOptional, IsString, MinLength } from "class-validator";
+import { IsDateString, IsEmail, IsOptional, IsString, MinLength } from "class-validator";
 import { Transform } from "class-transformer";
 
 export class CreatePersonDto {
@@ -32,10 +32,6 @@ export class CreatePersonDto {
     @MinLength(1)
     @IsOptional()
     direccion?: string;
-
-    @IsInt()
-    @IsOptional()
-    edad?: number;
 
     @IsDateString()
     fechaNacimiento: Date;

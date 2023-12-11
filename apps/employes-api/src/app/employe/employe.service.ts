@@ -15,27 +15,27 @@ export class EmpleadosService {
                 cedula: person.cedula
             }
         })
-        console.log(employeExists)
+        
         if (employeExists) throw new HttpException('the employee already exists', 403);
 
-        const newPerson = this.personRepository.create(person)
-        return this.personRepository.save(newPerson)
+        const newPerson = this.personRepository.create(person);
+        return this.personRepository.save(newPerson);
     }
 
     getPerson() {
-        return this.personRepository.find()
+        return this.personRepository.find();
     }
 
-    async getPersonByID(cedula: string) {
+    async getPersonByCedula(cedula: string) {
         const employeExists = await this.personRepository.findOne({
             where: {
                 cedula
             }
-        })
+        });
 
         if (!employeExists) throw new HttpException('the employee already exists', 404);
 
-        return employeExists
+        return employeExists;
     }
 
     async deletePerson(cedula: string) {
@@ -47,7 +47,7 @@ export class EmpleadosService {
 
         if (!employeExists) throw new HttpException('the employee does not exist', 404);
 
-        return this.personRepository.delete({ cedula })
+        return this.personRepository.softDelete({ cedula });
     }
 
     async updatePerson(cedula: string, person: UpdatePersonDto) {
@@ -59,6 +59,6 @@ export class EmpleadosService {
 
         if (!employeExists) throw new HttpException('the employee does not exist', 404);
 
-        return this.personRepository.update({ cedula }, person)
+        return this.personRepository.update({ cedula }, person);
     }
 }

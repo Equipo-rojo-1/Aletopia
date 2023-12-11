@@ -5,7 +5,7 @@ import { EmpleadosService } from './employe.service';
 import { Person } from './entities/employe.entity';
 import { JwtAuthGuard } from '../auth/jwt.guard';
 
-@Controller('empleados')
+@Controller('employe')
 @UseGuards(JwtAuthGuard)
 export class EmpleadosController {
 
@@ -13,26 +13,26 @@ export class EmpleadosController {
 
     @Get()
     getPerson(): Promise<Person[]> {
-        return this.personService.getPerson()
+        return this.personService.getPerson();
     }
 
     @Get(':cedula')
-    getPersonByID(@Param('cedula') cedula: string): Promise<Person> {
-        return this.personService.getPersonByID(cedula)
+    getPersonByCedula(@Param('cedula') cedula: string): Promise<Person> {
+        return this.personService.getPersonByCedula(cedula);
     }
 
     @Post('create')
     createPerson(@Body() person: CreatePersonDto): Promise<Person> {
-        return this.personService.createPerson(person)
+        return this.personService.createPerson(person);
     }
 
     @Delete(':cedula')
     deletePerson(@Param('cedula') cedula: string) {
-        return this.personService.deletePerson(cedula)
+        return this.personService.deletePerson(cedula);
     }
 
     @Patch(':cedula')
     updatePerson(@Param('cedula') cedula: string, @Body() person: UpdatePersonDto) {
-        return this.personService.updatePerson(cedula, person)
+        return this.personService.updatePerson(cedula, person);
     }
 }

@@ -1,12 +1,5 @@
+import { IsDateString, IsEmail, IsOptional, IsString, MinLength } from "class-validator";
 import { Transform } from "class-transformer";
-import {
-  IsDateString,
-  IsEmail,
-  IsInt,
-  IsOptional,
-  IsString,
-  MinLength,
-} from "class-validator";
 
 export class UpdatePersonDto {
 
@@ -19,6 +12,7 @@ export class UpdatePersonDto {
   @Transform(({ value }) => value.trim())
   @IsString()
   @MinLength(1)
+  @IsOptional()
   nombre?: string;
 
   @IsEmail()
@@ -42,10 +36,6 @@ export class UpdatePersonDto {
   @MinLength(1)
   @IsOptional()
   direccion?: string;
-
-  @IsInt()
-  @IsOptional()
-  edad?: number;
 
   @IsDateString()
   @IsOptional()

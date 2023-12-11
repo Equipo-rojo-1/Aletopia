@@ -1,4 +1,4 @@
-import nodemailer = require('nodemailer')
+import nodemailer from "nodemailer";
 
 export const transporter = nodemailer.createTransport({
 
@@ -10,9 +10,8 @@ export const transporter = nodemailer.createTransport({
         user: "equiporojo250@gmail.com",
         pass: "mdko zlzl tmqo lwos"
     }
-
 });
 
 transporter.verify().then(() => {
-    console.log('email enviado exitosamente');
+    console.log("email enviado exitosamente");
 });

@@ -1,4 +1,4 @@
-import { Person } from '../empleados/entities/employe.entity';
+import { Person } from '../employe/entities/employe.entity';
 import { HttpException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create.user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -9,17 +9,17 @@ import { hash } from 'bcrypt';
 
 @Injectable()
 export class UserService {
- 
+
     constructor(
         @InjectRepository(User) private readonly userRepository: Repository<User>,
         @InjectRepository(Person) private readonly personalRepository: Repository<Person>,
     ) { }
- 
+
     async createUser(usuario: CreateUserDto) {
         const personExists = this.personalRepository.findOneBy({
             cedula: usuario.cedula
         });
- 
+
         if (!personExists) throw new HttpException('NotFound', 404);
 
         const newUser = this.userRepository.create();
@@ -34,12 +34,12 @@ export class UserService {
         return await this.userRepository.find();
     }
 
-    async getUserByID(id: string) {
+    async getUserByCedula(id: string) {
         const personExists = await this.userRepository.findOne({
             where: {
                 cedula: id
             }
-        })
+        });
 
         if (!personExists) throw new HttpException('NotFound', 404);
 
@@ -51,11 +51,11 @@ export class UserService {
             where: {
                 cedula: id
             }
-        })
+        });
 
         if (!userExists) throw new HttpException('NotFound', 404);
 
-        return await this.userRepository.delete({ cedula: id });
+        return await this.userRepository.softDelete({ cedula: id });
     }
 
     async updateUser(id: string, usuario: UpdateUser) {
@@ -63,9 +63,9 @@ export class UserService {
             where: {
                 cedula: id
             }
-        })
+        });
 
-        if (!personExists) throw new HttpException('NotFound', 404);;
+        if (!personExists) throw new HttpException('NotFound', 404);
 
         const updateUser = this.userRepository.create();
 

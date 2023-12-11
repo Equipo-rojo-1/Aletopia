@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryColumn, OneToOne } from 'typeorm';
-import { User } from '../../usuario/entities/user.entity';
+import { User } from '../../user/entities/user.entity';
 
 @Entity()
 export class Person {
@@ -15,14 +15,11 @@ export class Person {
   @Column({ default: '00000000000' })
   telefono: string;
 
-  @Column({ default: 'UNICA' })
+  @Column({ default: 'Dirección Unica' })
   direccion: string;
 
   @Column({ unique: true, nullable: false })
   correo: string;
-
-  @Column({ default: 0 })
-  edad: number;
 
   @Column({ name: 'fecha_nacimiento', type: 'date' })
   fechaNacimiento: Date;
