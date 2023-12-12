@@ -6,8 +6,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class EmpleadosService {
-    constructor(@InjectRepository(Person) private personRepository: Repository<Person>) { }
+export class EmployeService {
+    constructor(@InjectRepository(Person) private readonly personRepository: Repository<Person>) { }
 
     async createPerson(person: CreatePersonDto) {
         const employeExists = await this.personRepository.findOne({
@@ -15,11 +15,11 @@ export class EmpleadosService {
                 cedula: person.cedula
             }
         })
-        
+
         if (employeExists) throw new HttpException('the employee already exists', 403);
 
-        const newPerson = this.personRepository.create(person);
-        return this.personRepository.save(newPerson);
+        const createPerson = this.personRepository.create(person);
+        return this.personRepository.save(createPerson);
     }
 
     getPerson() {
@@ -27,37 +27,48 @@ export class EmpleadosService {
     }
 
     async getPersonByCedula(cedula: string) {
-        const employeExists = await this.personRepository.findOne({
+        const employeByCedula = await this.personRepository.findOne({
             where: {
                 cedula
             }
         });
 
-        if (!employeExists) throw new HttpException('the employee already exists', 404);
+        if (!employeByCedula) throw new HttpException('the employee does not exists', 404);
 
-        return employeExists;
+        return employeByCedula;
+    }
+
+    async getPersonByJobTitle(jobtitle: string) {
+        const employeByJobTitle = await this.personRepository.find({ 
+            where: {
+                jobtitle 
+            }
+        });
+        if (!employeByJobTitle) throw new HttpException('there is no employee with that position', 404);
+
+        return employeByJobTitle;
     }
 
     async deletePerson(cedula: string) {
-        const employeExists = await this.personRepository.findOne({
+        const employeByCedula = await this.personRepository.findOne({
             where: {
                 cedula
             }
         })
 
-        if (!employeExists) throw new HttpException('the employee does not exist', 404);
+        if (!employeByCedula) throw new HttpException('the employee does not exist', 404);
 
         return this.personRepository.softDelete({ cedula });
     }
 
     async updatePerson(cedula: string, person: UpdatePersonDto) {
-        const employeExists = await this.personRepository.findOne({
+        const employeByCedula = await this.personRepository.findOne({
             where: {
                 cedula
             }
         })
 
-        if (!employeExists) throw new HttpException('the employee does not exist', 404);
+        if (!employeByCedula) throw new HttpException('the employee does not exist', 404);
 
         return this.personRepository.update({ cedula }, person);
     }

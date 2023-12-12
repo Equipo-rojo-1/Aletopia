@@ -1,15 +1,15 @@
 import { Controller, Post, Body, Get, Param, Delete, Patch, UseGuards } from '@nestjs/common';
 import { UpdatePersonDto } from './dto/update.person.dto';
 import { CreatePersonDto } from './dto/create.person.dto';
-import { EmpleadosService } from './employe.service';
+import { EmployeService } from './employe.service';
 import { Person } from './entities/employe.entity';
 import { JwtAuthGuard } from '../auth/jwt.guard';
 
 @Controller('employe')
 @UseGuards(JwtAuthGuard)
-export class EmpleadosController {
+export class EmployeController {
 
-    constructor(private readonly personService: EmpleadosService) { }
+    constructor(private readonly personService: EmployeService) { }
 
     @Get()
     getPerson(): Promise<Person[]> {
@@ -19,6 +19,11 @@ export class EmpleadosController {
     @Get(':cedula')
     getPersonByCedula(@Param('cedula') cedula: string): Promise<Person> {
         return this.personService.getPersonByCedula(cedula);
+    }
+
+    @Get(':jobtitle')
+    getPersonByJobTitle(@Param('jobtitle') Jobtitle: string): Promise<Person[]> {
+        return this.personService.getPersonByJobTitle(Jobtitle);
     }
 
     @Post('create')

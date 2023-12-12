@@ -22,12 +22,12 @@ export class UserService {
 
         if (!personExists) throw new HttpException('NotFound', 404);
 
-        const newUser = this.userRepository.create();
-        newUser.username = usuario.username;
-        newUser.cedula = usuario.cedula;
-        newUser.password = await hash(usuario.password, 10);
+        const createUser = this.userRepository.create();
+        createUser.username = usuario.username;
+        createUser.cedula = usuario.cedula;
+        createUser.password = await hash(usuario.password, 10);
 
-        return this.userRepository.save(newUser);
+        return this.userRepository.save(createUser);
     }
 
     async getUsers() {

@@ -35,4 +35,9 @@ export class CreatePersonDto {
 
     @IsDateString()
     fechaNacimiento: Date;
+
+    @Transform(({ value }) => value.trim())
+    @IsString()
+    @MinLength(5)
+    jobtitle: string;
 }

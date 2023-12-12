@@ -11,7 +11,7 @@ import { Module } from '@nestjs/common';
     imports: [TypeOrmModule.forFeature([User]),
     JwtModule.register({
         secret: jwtConstants.secret,
-        signOptions: { expiresIn: '60s' },
+        signOptions: { expiresIn: '10h' },
     }),
     ],
     controllers: [AuthController],

@@ -40,4 +40,10 @@ export class UpdatePersonDto {
   @IsDateString()
   @IsOptional()
   fechaNacimiento?: Date;
+
+  @Transform(({ value }) => value.trim())
+  @IsString()
+  @MinLength(5)
+  @IsOptional()
+  jobtitle?: string;
 }

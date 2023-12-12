@@ -1,7 +1,5 @@
-import { ChargesController } from './charges/charges.controller';
-import { ChargesService } from './charges/charges.service';
-import { EmpleadosModule } from './employe/employe.module';
-import { ChargesModule } from './charges/charges.module';
+import { JobTitleModule } from './job.title/job.title.module';
+import { EmployeModule } from './employe/employe.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
@@ -27,12 +25,10 @@ const db_pass = process.env.DATA_BASE_PASSWORD;
       autoLoadEntities: true,
       synchronize: true,
     }),
-    EmpleadosModule,
+    EmployeModule,
+    JobTitleModule,
     UserModule,
     AuthModule,
-    ChargesModule,
   ],
-  controllers: [ChargesController],
-  providers: [ChargesService],
 })
 export class AppModule {}
