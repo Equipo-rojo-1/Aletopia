@@ -1,36 +1,79 @@
-import { UpdatePersonaDto } from './dto/update_persona.dto';
-import { CreatePersonaDto } from './dto/create_persona.dto';
+import { UpdatePersonaDto } from './dto/update.persona.dto';
+import { CreatePersonaDto } from './dto/create.persona.dto';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { personal } from './empleados.entity';
-import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class EmpleadosService {
     constructor(@InjectRepository(personal) private personalRepository: Repository<personal>) { }
 
-    CreatePersona(persona: CreatePersonaDto) {
-        const newpersona = this.personalRepository.create(persona)
-        return this.personalRepository.save(newpersona)
+    async CreatePersona(persona: CreatePersonaDto) {
+        const employeExists = await this.personalRepository.findOne({
+            where: {
+                cedula: persona.cedula
+            }
+        })
+
+        if (employeExists) {
+            throw new BadRequestException('Not exists')
+        }
+
+        else {
+            const newPersona = this.personalRepository.create(persona)
+            return this.personalRepository.save(newPersona)
+        }
     }
 
     GetPersona() {
         return this.personalRepository.find()
     }
 
-    GetPersonaBy(cedula: string) {
-        return this.personalRepository.findOne({
+    async GetPersonaBy(cedula: string) {
+        const employeExists = await this.personalRepository.findOne({
             where: {
                 cedula
             }
         })
+
+        if (!employeExists) {
+            throw new BadRequestException('Not exists')
+        }
+
+        else {
+            return employeExists
+        }
     }
 
-    DeletePersona(cedula: string) {
-        return this.personalRepository.delete({ cedula })
+    async DeletePersona(cedula: string) {
+        const employeExists = await this.personalRepository.findOne({
+            where: {
+                cedula
+            }
+        })
+
+        if (!employeExists) {
+            throw new BadRequestException('Not exists')
+
+        }
+        else {
+            return this.personalRepository.delete({ cedula })
+        }
     }
 
-    UpdatePersona(cedula: string, persona: UpdatePersonaDto) {
-        return this.personalRepository.update({ cedula }, persona)
+    async UpdatePersona(cedula: string, persona: UpdatePersonaDto) {
+        const employeExists = await this.personalRepository.findOne({
+            where: {
+                cedula
+            }
+        })
+
+        if (!employeExists) {
+            throw new BadRequestException('Not exists')
+        }
+        else {
+            return this.personalRepository.update({ cedula }, persona)
+        }
     }
 }

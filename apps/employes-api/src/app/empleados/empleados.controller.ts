@@ -1,13 +1,13 @@
 import { Controller, Post, Body, Get, Param, Delete, Patch } from '@nestjs/common';
-import { UpdatePersonaDto } from './dto/update_persona.dto';
-import { CreatePersonaDto } from './dto/create_persona.dto';
+import { UpdatePersonaDto } from './dto/update.persona.dto';
+import { CreatePersonaDto } from './dto/create.persona.dto';
 import { EmpleadosService } from './empleados.service';
 import { personal } from './empleados.entity';
 
 @Controller('empleados')
 export class EmpleadosController {
 
-    constructor(private personaService: EmpleadosService) { }
+    constructor(private readonly personaService: EmpleadosService) { }
 
     @Get()
     GetPersona(): Promise<personal[]> {
@@ -19,7 +19,7 @@ export class EmpleadosController {
         return this.personaService.GetPersonaBy(cedula)
     }
 
-    @Post()
+    @Post('create')
     CreatePersona(@Body() newpersona: CreatePersonaDto): Promise<personal> {
         return this.personaService.CreatePersona(newpersona)
     }

@@ -1,22 +1,25 @@
-
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, DeleteDateColumn } from "typeorm";
 import { personal } from "../empleados/empleados.entity";
 
 @Entity()
 export class User {
+
     @PrimaryGeneratedColumn()
-    id: number
+    id: number;
 
-    @Column()
-    username: string
+    @Column({ nullable: false })
+    username: string;
 
-    @Column()
-    password: string
+    @Column({ nullable: false })
+    password: string;
 
-    @Column({name: 'id_cedula'})
-    id_cedula: string
+    @Column({ name: 'id_cedula' })
+    id_cedula: string;
 
     @OneToOne(() => personal)
     @JoinColumn({ name: 'id_cedula' })
-    personal: personal
+    personal: personal;
+
+    @DeleteDateColumn()
+    deleteAT: Date;
 }
