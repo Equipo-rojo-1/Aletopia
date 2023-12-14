@@ -17,7 +17,7 @@
         "tsConfig": "apps/web-vet-appointment-schedule-manager/tsconfig.app.json",
         "assets": [
           "apps/web-vet-appointment-schedule-manager/src/favicon.ico",
-          "apps/web-vet-appointment-schedule-manager/src/assets"
+          "apps/web-vet-appointment-schedule-manager/src/assets",
         ],
         "styles": [],
         "scripts": [],

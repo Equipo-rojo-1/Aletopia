@@ -37,6 +37,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+.pnpm-debug.log
+pnpm-lock.yaml
+.env
 
 .nx/cache
 .env

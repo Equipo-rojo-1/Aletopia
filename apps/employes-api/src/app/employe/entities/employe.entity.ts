@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryColumn, OneToOne, JoinColumn, DeleteDateColumn, ManyToOne } from 'typeorm';
-import { JobTitle } from '../../job.title/entities/job.title.entity';
+import { Entity, Column, PrimaryColumn, OneToOne } from 'typeorm';
 import { User } from '../../user/entities/user.entity';
 
 @Entity()
@@ -16,15 +15,18 @@ export class Person {
   @Column({ default: '00000000000' })
   telefono: string;
 
-  @Column({ default: 'Dirección Unica' })
+  @Column({ default: 'UNICA' })
   direccion: string;
 
   @Column({ unique: true, nullable: false })
   correo: string;
 
+  @Column({ default: 0 })
+  edad: number;
+
   @Column({ name: 'fecha_nacimiento', type: 'date' })
   fechaNacimiento: Date;
-
+ 
   @Column({
     name: 'fecha_ingreso',
     type: 'datetime',
@@ -32,16 +34,6 @@ export class Person {
   })
   fechaIngreso: Date;
 
-  @Column()
-  jobtitle: string;
-
-  @ManyToOne(() => JobTitle, (JobTitle) => JobTitle.person)
-  @JoinColumn({ name: 'jobtitle' })
-  jobTitle: JobTitle;
-
   @OneToOne(() => User, (User) => User.cedula)
   user: User;
-
-  @DeleteDateColumn()
-  deleteAT: Date;
 }

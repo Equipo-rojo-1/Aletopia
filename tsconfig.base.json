@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@aletopia/common-assests": ["common-assests/src/index.ts"],
+      "@aletopia/libs/zoo-catalog-interfaces": [
+        "libs/libs/zoo-catalog-interfaces/src/index.ts"
+      ],
+      "@aletopia/libs\\zoo-interfaces": ["libs/zoo-interfaces/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
