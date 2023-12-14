@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryColumn, OneToOne } from 'typeorm';
+import { JobTitle } from '../../job.title/entities/job.title.entity';
+import { Entity, Column, PrimaryColumn, OneToOne, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from '../../user/entities/user.entity';
 
 @Entity()
@@ -21,9 +22,6 @@ export class Person {
   @Column({ unique: true, nullable: false })
   correo: string;
 
-  @Column({ default: 0 })
-  edad: number;
-
   @Column({ name: 'fecha_nacimiento', type: 'date' })
   fechaNacimiento: Date;
  
@@ -39,4 +37,8 @@ export class Person {
 
   @Column()
   jobtitle: string;
+
+  @ManyToOne(() => JobTitle, (JobTitle) => JobTitle.person)
+  @JoinColumn({name: 'jobtitle'})
+  jobTitle: JobTitle;
 }

@@ -1,19 +1,20 @@
-import * as nodemailer from "nodemailer";
+import { ConfigService } from "@nestjs/config";
 import { SentMessageInfo } from "nodemailer";
 import { Injectable } from "@nestjs/common";
+import * as nodemailer from "nodemailer";
 
 @Injectable()
 export class MailService {
     private transporter: nodemailer.Transporter;
 
-    constructor() {
+    constructor(configService: ConfigService) {
         this.transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
+            host: configService.get('HOST_MAIL'),
+            port: configService.get('PORT_MAIL'),
             secure: true,
-            port: 465,
             auth: {
-                user: 'equiporojo250@gmail.com',
-                pass: 'mpib qjcq xnzn vszn',
+                user: configService.get('USER_MAIL'),
+                pass: configService.get('PASS_MAIL'),
             },
         });
     }
