@@ -38,17 +38,6 @@ export class EmployeService {
         return employeByCedula;
     }
 
-    async getPersonByJobTitle(jobtitle: string) {
-        const employeByJobTitle = await this.personRepository.find({ 
-            where: {
-                jobtitle 
-            }
-        });
-        if (!employeByJobTitle) throw new HttpException('there is no employee with that position', 404);
-
-        return employeByJobTitle;
-    }
-
     async deletePerson(cedula: string) {
         const employeByCedula = await this.personRepository.findOne({
             where: {

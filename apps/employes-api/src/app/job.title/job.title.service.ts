@@ -17,7 +17,7 @@ export class JobTitleService {
             }
         });
 
-        if (jobTitleExist) throw new HttpException("the job title already exists", 404);
+        if (jobTitleExist) throw new HttpException("the job title already exists", 403);
 
         const createJobTitle = this.jobTitleRepository.create(jobtitle);
         return this.jobTitleRepository.save(createJobTitle);

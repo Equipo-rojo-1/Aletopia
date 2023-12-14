@@ -1,4 +1,4 @@
-import { Column, DeleteDateColumn, Entity, JoinTable, ManyToMany, PrimaryColumn } from "typeorm";
+import { Column, DeleteDateColumn, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import { Person } from "../../employe/entities/employe.entity";
 
 @Entity()
@@ -7,14 +7,13 @@ export class JobTitle {
     @PrimaryColumn()
     name: string;
  
-    @Column()
+    @Column({default: "Por describir"})
     description: string;
 
-    @Column()
+    @Column({default: "Por asignar"})
     responsibility: string;
  
-    @ManyToMany(() => Person, person => person.jobtitle)
-    @JoinTable()
+    @OneToMany(() => Person, (Person) => Person.jobtitle)
     person: Person[];
 
     @DeleteDateColumn()

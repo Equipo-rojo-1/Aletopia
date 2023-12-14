@@ -4,6 +4,7 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
+import { MailModule } from './mail/mail.module';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -29,6 +30,7 @@ const db_pass = process.env.DATA_BASE_PASSWORD;
     JobTitleModule,
     UserModule,
     AuthModule,
+    MailModule,
   ],
 })
 export class AppModule {}

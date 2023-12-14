@@ -21,15 +21,10 @@ export class EmployeController {
         return this.personService.getPersonByCedula(cedula);
     }
 
-    @Get(':jobtitle')
-    getPersonByJobTitle(@Param('jobtitle') Jobtitle: string): Promise<Person[]> {
-        return this.personService.getPersonByJobTitle(Jobtitle);
-    }
-
     @Post('create')
     createPerson(@Body() person: CreatePersonDto): Promise<Person> {
         return this.personService.createPerson(person);
-    }
+    } 
 
     @Delete(':cedula')
     deletePerson(@Param('cedula') cedula: string) {

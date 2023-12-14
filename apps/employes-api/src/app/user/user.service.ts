@@ -20,7 +20,7 @@ export class UserService {
             cedula: usuario.cedula
         });
 
-        if (!personExists) throw new HttpException('NotFound', 404);
+        if (!personExists) throw new HttpException('the user is already assigned to a person', 404);
 
         const createUser = this.userRepository.create();
         createUser.username = usuario.username;
@@ -41,7 +41,7 @@ export class UserService {
             }
         });
 
-        if (!personExists) throw new HttpException('NotFound', 404);
+        if (!personExists) throw new HttpException('the user or person does not exists', 404);
 
         return personExists;
     }
@@ -53,7 +53,7 @@ export class UserService {
             }
         });
 
-        if (!userExists) throw new HttpException('NotFound', 404);
+        if (!userExists) throw new HttpException('the user or person does not exists', 404);
 
         return await this.userRepository.softDelete({ cedula: id });
     }
@@ -65,7 +65,7 @@ export class UserService {
             }
         });
 
-        if (!personExists) throw new HttpException('NotFound', 404);
+        if (!personExists) throw new HttpException('the user or person does not exists', 404);
 
         const updateUser = this.userRepository.create();
 

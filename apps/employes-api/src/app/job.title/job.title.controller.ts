@@ -8,7 +8,7 @@ import { JwtAuthGuard } from '../auth/jwt.guard';
 @Controller('jobtitle')
 @UseGuards(JwtAuthGuard)
 export class JobTitleController {
-
+ 
     constructor(private readonly jobTitleService: JobTitleService) { }
 
     @Post('create')
