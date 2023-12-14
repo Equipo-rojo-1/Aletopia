@@ -36,4 +36,7 @@ export class Person {
 
   @OneToOne(() => User, (User) => User.cedula)
   user: User;
+
+  @Column()
+  jobtitle: string;
 }

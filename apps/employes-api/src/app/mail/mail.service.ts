@@ -1,31 +1,32 @@
-import { ConfigService } from "@nestjs/config";
+import * as nodemailer from "nodemailer";
 import { SentMessageInfo } from "nodemailer";
 import { Injectable } from "@nestjs/common";
-import * as nodemailer from "nodemailer";
 
 @Injectable()
-export class MailService  {
+export class MailService {
+    private transporter: nodemailer.Transporter;
 
-    constructor(private readonly configService: ConfigService) {}
-
-    async sendMail(to: string, subject: string, html: string): Promise<SentMessageInfo> {
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
+    constructor() {
+        this.transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
             secure: true,
+            port: 465,
             auth: {
                 user: 'equiporojo250@gmail.com',
                 pass: 'mpib qjcq xnzn vszn',
-            } 
+            },
         });
+    }
 
-        const info = await transporter.sendMail({
+    async sendMail(): Promise<SentMessageInfo> {
+        const info = await this.transporter.sendMail({
             from: '"password 👻" <equiporojo250@gmail.com>',
-            to: to,
-            subject: subject,
-            html: html,
-        });  
-
+            to: 'duffyalternativo@gmail.com',
+            subject: 'Correo',
+            html: '<b>aqui esta la contrasena ?</b>',
+        });
+        
+        console.log('Message sent: %s', info.messageId);
         return info;
     }
 }
