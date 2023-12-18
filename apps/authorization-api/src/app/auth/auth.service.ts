@@ -17,7 +17,7 @@ export class AuthService {
         const { username, password } = user;
         const userExists = await this.UserRepository.findOneBy({ username });
 
-        if (!userExists) throw new UnauthorizedException();
+        //if (!userExists) throw new UnauthorizedException();
 
         const verifyPassword = await compare(password, userExists.password);
 

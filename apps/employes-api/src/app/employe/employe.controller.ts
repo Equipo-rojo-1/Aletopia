@@ -20,6 +20,12 @@ export class EmployeController {
     getPersonByCedula(@Param('cedula') cedula: string): Promise<Person> {
         return this.personService.getPersonByCedula(cedula);
     }
+    
+    @Get(':jobtitle')
+    get_Personas_jobtitle(@Param('jobtitle') jobtitle: string ):Promise<Person>{
+        return this.personService.getJobtitleList(jobtitle);
+    }
+
 
     @Post('create')
     createPerson(@Body() person: CreatePersonDto): Promise<Person> {

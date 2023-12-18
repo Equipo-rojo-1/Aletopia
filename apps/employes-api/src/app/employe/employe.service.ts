@@ -16,7 +16,7 @@ export class EmployeService {
             }
         })
 
-        if (employeExists) throw new HttpException('the employee already exists', 403);
+        if (!employeExists) throw new HttpException('the  no existe', 403);
 
         const createPerson = this.personRepository.create(person);
         return this.personRepository.save(createPerson);
@@ -24,6 +24,15 @@ export class EmployeService {
 
     getPerson() {
         return this.personRepository.find();
+    }
+
+    async getJobtitleList(jobtitle:string){
+
+        const employeByJobtitle = await this.personRepository.findOneByOrFail({jobtitle})
+
+        if(!employeByJobtitle) throw new HttpException('The employee already exists', 403);
+
+        return employeByJobtitle;
     }
 
     async getPersonByCedula(cedula: string) {
